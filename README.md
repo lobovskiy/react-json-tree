@@ -1,3 +1,7 @@
+# Description
+
+Different JSON data representations using [SAAS Dashboard UI](https://www.figma.com/community/file/1065510379888107603).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -13,6 +17,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### `npm run json`
+
+Runs the JSON server with the pre-generated data.\
+Open [http://localhost:3004/family](http://localhost:3004/family) to view the JSON data in your browser.
+
+### `npm run start-with-json`
+
+Consistently runs the app and the JSON server described above.
 
 ### `npm test`
 
