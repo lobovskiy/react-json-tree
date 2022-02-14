@@ -1,7 +1,18 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFamily } from './asyncActions/family';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const familyData = useSelector(state => state.family);
+  const dispatch = useDispatch();
+  const family = familyData
+    ? familyData.map(item => {
+      return (
+        <div>{item.first_name}</div>
+      )
+    })
+    : null;
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +28,8 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => dispatch(fetchFamily())}>Click me</button>
+        {family}
       </header>
     </div>
   );
