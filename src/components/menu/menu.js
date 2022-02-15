@@ -1,7 +1,15 @@
-function Menu() {
+import { useDispatch } from 'react-redux';
+import { withNamespaces } from 'react-i18next';
+import { fetchFamily } from '../../store/reducer';
+
+function Menu({ t }) {
+  const dispatch = useDispatch();
+  
   return (
-    <button>Click me</button>
+    <>
+      <button onClick={() => dispatch(fetchFamily())}>{t('Menu button')}</button>
+    </>
   );
 }
 
-export default Menu;
+export default withNamespaces()(Menu);
