@@ -1,9 +1,12 @@
-import LogoImage from './logo.svg';
+import logoImage from './logo.svg';
+import './logo.scss';
 
 function Logo() {
   return (
-    // <LogoImage/>
-    null
+    <div className="logo">
+      <div className="logo__img"><img src={logoImage} alt="logo" /></div>
+      <div className="logo__text">Base</div>
+    </div>
   )
 }
 
