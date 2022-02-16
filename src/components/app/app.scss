@@ -1,5 +1,14 @@
+@import url(../../fonts/fonts.css);
+
 .App {
   background-color: #fff;
+  font-family: 'Nunito', sans-serif;
+}
+
+.change-language {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .container {
@@ -23,5 +32,9 @@
 
 .app-content {
   flex: 1 1 auto;
+  padding: 30px 0 0;
+}
+
+.app-spinner {
   text-align: center;
 }

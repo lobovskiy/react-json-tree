@@ -10,17 +10,17 @@ function App({ t }) {
   }
   return (
     <div className="App">
+      <div className="change-language">
+        <button onClick={() => changeLanguage('ru')}>ru</button>
+        <button onClick={() => changeLanguage('en')}>en</button>
+      </div>
       <div className="container">
-        <div className='app-menu'>
+        <div className="app-menu">
           <Menu/>
         </div>
-        <div className='app-content'>
+        <div className="app-content">
           <Content/>
         </div>   
-        <div>
-          <button onClick={() => changeLanguage('ru')}>ru</button>
-          <button onClick={() => changeLanguage('en')}>en</button>
-        </div>
       </div>
     </div>
   );
