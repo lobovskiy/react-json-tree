@@ -1,10 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
 import i18n from '../../utils/i18n';
-import { withNamespaces } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Menu from '../menu';
-import Content from '../content';
+import { MainPage, FamilyTablePage } from '../pages';
 import './app.scss';
 
-function App({ t }) {
+function App() {
+const { t } = useTranslation();
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   }
@@ -18,12 +21,13 @@ function App({ t }) {
         <div className="app-menu">
           <Menu/>
         </div>
-        <div className="app-content">
-          <Content/>
-        </div>   
+        <Routes>
+          <Route path='/' element={<MainPage/>} />
+          <Route path='/table' element={<FamilyTablePage/>} />
+        </Routes>  
       </div>
     </div>
   );
 }
 
-export default withNamespaces()(App);
+export default App;

@@ -1,17 +1,25 @@
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { withNamespaces } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { fetchFamily } from '../../store/reducer';
 import Logo from '../logo';
+import './menu.scss';
 
-function Menu({ t }) {
+function Menu() {
   const dispatch = useDispatch();
+  const { t, ready } = useTranslation('translation', { keyPrefix: 'very.deeply.nested' },  { returnObjects: true });
+  // console.log(t);
+  const translation = t('table');
+  console.log(translation, ready);
   
   return (
     <>
       <Logo/>
-      <button onClick={() => dispatch(fetchFamily())}>{t('Menu button')}</button>
+      <div className="nav">
+        <Link to={'/table'} className="nav__item" onClick={() => dispatch(fetchFamily())}>{t('key')}</Link>
+      </div>
     </>
   );
 }
 
-export default withNamespaces()(Menu);
+export default Menu;

@@ -1,4 +1,10 @@
+@import-normalize;
 @import url(../../fonts/fonts.css);
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 
 .App {
   background-color: #fff;
@@ -36,5 +42,6 @@
 }
 
 .app-spinner {
+  width: 100%;
   text-align: center;
 }
