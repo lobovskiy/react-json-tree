@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import i18n from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
+import Logo from '../logo';
 import Menu from '../menu';
 import { MainPage, FamilyTablePage } from '../pages';
+import { menuConfig } from '../../config';
 import './app.scss';
 
 function App() {
@@ -19,11 +21,13 @@ const { t } = useTranslation();
       </div>
       <div className="container">
         <div className="app-menu">
+          <Logo/>
           <Menu/>
         </div>
         <Routes>
           <Route path='/' element={<MainPage/>} />
-          <Route path='/table' element={<FamilyTablePage/>} />
+          {/* что-то придумать с конфигом: */}
+          <Route path={`/${menuConfig.items[0].url}`} element={<FamilyTablePage/>} />
         </Routes>  
       </div>
     </div>

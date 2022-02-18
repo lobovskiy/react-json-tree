@@ -1,6 +1,6 @@
 import './table.scss';
 
-function Table({ t, data, columns, header }) {
+function Table({ t, data, columns }) {
 
   if (data?.length) {
     const tableRows = data.map((item, itemIndex) => {
@@ -13,7 +13,6 @@ function Table({ t, data, columns, header }) {
 
     return (
       <div className="table">
-        <h1 className="table__title">{header}</h1>
         {tableRows}
       </div>
     )

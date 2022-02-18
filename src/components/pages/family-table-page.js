@@ -4,6 +4,7 @@ import { fetchFamily } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import Spinner from '../spinner';
 import Table from '../table';
+import { tableConfig } from '../../config';
 
 function FamilyTablePage() {
   const familyData = useSelector(state => state.family.table);
@@ -16,20 +17,16 @@ function FamilyTablePage() {
     dispatch(fetchFamily());
   }, [dispatch]);
 
-  if (isLoading) {
-    return (
-      <div className="app-spinner">
-        <Spinner/>
-      </div>
-    )
-  } else {
+  const content = isLoading
+    ? <Spinner/>
+    : <Table data={familyData} columns={tableConfig.columns} />
 
-    return (
-      <div className="app-content">
-        <Table data={familyData} columns={['first_name', 'last_name', 'gender']} header = {t('Table header')} />
-      </div>
-    )
-  }
+  return (
+    <div className="app-content">
+      <h1 className="app-content__title">{t('Table header')}</h1>
+      {content}
+    </div>
+  )
 }
 
 export default FamilyTablePage;
