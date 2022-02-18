@@ -16,15 +16,13 @@ const resources = {
 };
 
 i18n
-  // .use(detector)
+  .use(detector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    debug: true,
-    lng: "en",
     fallbackLng: "en", // use en if detected lng is not available
     
-    keySeparator: false, // we do not use keys in form messages.welcome
+    // keySeparator: false, // we do not use keys in form messages.welcome
 
     interpolation: {
       escapeValue: false // react already safes from xss

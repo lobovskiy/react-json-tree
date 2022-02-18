@@ -1,4 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFamily } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import Spinner from '../spinner';
 import Table from '../table';
@@ -6,8 +8,13 @@ import Table from '../table';
 function FamilyTablePage() {
   const familyData = useSelector(state => state.family.table);
   const isLoading = useSelector(state => state.loading);
+  const dispatch = useDispatch();
+
   const { t } = useTranslation();
-  console.log(t)
+  
+  useEffect(() => {
+    dispatch(fetchFamily());
+  }, [dispatch]);
 
   if (isLoading) {
     return (
