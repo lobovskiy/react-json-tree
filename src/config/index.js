@@ -11,9 +11,18 @@ const menuConfig = {
 const tableConfig = {
   columns: [
     // 'id',
-    'first_name',
-    'last_name',
-    'gender'
+    {
+      dataField: 'first_name',
+      text: 'First name'
+    },
+    {
+      dataField: 'last_name',
+      text: 'Last name'
+    },
+    {
+      dataField: 'gender',
+      text: 'Gender'
+    }
   ]
 }
 
