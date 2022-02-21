@@ -7,31 +7,30 @@ import { configMenu } from '../../config';
 import './app.scss';
 
 function App() {
-
-  const changeLanguage = (lng) => {
+  const handleChangeLanguage = lng => {
     i18n.changeLanguage(lng);
   }
 
   const appRoutes = configMenu.items.map((item, i) => {
     return (
-      <Route key={i} path={`/${item.url}`} element={item.page} />
+      <Route key={ i } path={ `/${item.url}` } element={ item.page } />
     )
   });
 
   return (
     <div className="App">
       <div className="change-language">
-        <button onClick={() => changeLanguage('ru')}>ru</button>
-        <button onClick={() => changeLanguage('en')}>en</button>
+        <button onClick={ () => handleChangeLanguage('ru') }>ru</button>
+        <button onClick={ () => handleChangeLanguage('en') }>en</button>
       </div>
       <div className="container">
         <div className="app-menu">
-          <Logo/>
-          <Menu/>
+          <Logo />
+          <Menu />
         </div>
         <Routes>
-          <Route path='/' element={<MainPage/>} />
-          {appRoutes}
+          <Route path='/' element={ <MainPage /> } />
+          { appRoutes }
         </Routes>
       </div>
     </div>

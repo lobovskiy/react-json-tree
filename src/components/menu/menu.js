@@ -4,6 +4,7 @@ import { configMenu } from '../../config';
 import classNames from 'classnames/bind';
 import './menu.scss';
 
+
 function Menu() {
   const { pathname } = useLocation();
 
@@ -11,20 +12,29 @@ function Menu() {
 
   const menu = configMenu.items.map((item, i) => {
 
-    const iconsCatalog = require(`../../assets/img/icons/${item.icon}`);
+    const iconsCatalog = require(`../../assets/img/icons/${ item.icon }`);
 
     return (
-      <Link key={i} to={`/${item.url}`} className={classNames('nav__item', {nav__item_active: (pathname === `/${item.url}`)})}>
+      <Link
+        key={ i }
+        to={ `/${ item.url }` }
+        className={
+          classNames(
+            'nav__item',
+            { nav__item_active: (pathname === `/${ item.url }`) }
+          )
+        }
+      >
         <div className="nav__item-bg"></div>
-        <div className="nav__item-img nav__item-img_violet"><img src={iconsCatalog} alt='img' /></div>
-        <div className="nav__item-text">{t(item.text)}</div>
+        <div className="nav__item-img nav__item-img_violet"><img src={ iconsCatalog } alt='img' /></div>
+        <div className="nav__item-text">{ t(item.text) }</div>
       </Link>
     )
   });
 
   return (
     <div className="nav">
-      {menu}
+      { menu }
     </div>
   );
 }

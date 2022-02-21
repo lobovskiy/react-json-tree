@@ -1,10 +1,11 @@
 import { FamilyTablePage } from '../components/pages';
 
+
 const configMenu = {
   items: [
     {
       url: 'table',
-      page: <FamilyTablePage/>,
+      page: <FamilyTablePage />,
       icon: 'icon-table.svg',
       text: 'navigation.table'
     }

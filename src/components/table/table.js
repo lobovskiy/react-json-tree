@@ -7,8 +7,8 @@ function Table({ data, columns }) {
   if (data?.length) {
     return (
       <div className="table">
-        <TableHeader configColumns={columns} />
-        <TableRows data={data} configColumns={columns} />
+        <TableHeader configColumns={ columns } />
+        <TableRows data={ data } configColumns={ columns } />
       </div>
     )
   }

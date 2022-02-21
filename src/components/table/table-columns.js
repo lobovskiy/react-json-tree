@@ -7,7 +7,9 @@ function TableColumns({ row, rowKeys }) {
   return (
     rowKeys.map((rowKey, i) => {
       return (
-        <div key={i}>{row[rowKey]}</div>
+        <div key={i}>
+          { row[rowKey] }
+        </div>
       )
     })
   )

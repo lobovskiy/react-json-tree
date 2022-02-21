@@ -1,7 +1,6 @@
 import { getConfigPropertyValue } from './table-helpers';
 
 function TableHeader({ configColumns }) {
-
   if (!configColumns?.length) {
     return null;
   }
@@ -11,7 +10,9 @@ function TableHeader({ configColumns }) {
       {
         configColumns.map((column, columnIndex) => {
           return (
-            <div key={columnIndex}>{getConfigPropertyValue(column, 'text')}</div>
+            <div key={ columnIndex }>
+              { getConfigPropertyValue(column, 'text') }
+            </div>
           )
         })
       }

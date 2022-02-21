@@ -1,36 +1,29 @@
-function createNameFromProperty(str) {
-  if (!str) return str;
-
-  str = str.replace(/_/g, ' ');
-  return str[0].toUpperCase() + str.slice(1);
-}
-
-function highlightGender(gender) {
+function genderFormatter(gender) {
   let divClass = "table__row-highlight"
   switch (gender) {
     case "Male":
-      divClass += ' table__row-highlight_gender1';
+      divClass += ' table__row-highlight_male';
       break;
     case "Female":
-      divClass += ' table__row-highlight_gender2';
+      divClass += ' table__row-highlight_female';
       break;
     case "Polygender":
-      divClass += ' table__row-highlight_gender3';
+      divClass += ' table__row-highlight_polygender';
       break;
     case "Bigender":
-      divClass += ' table__row-highlight_gender4';
+      divClass += ' table__row-highlight_bigender';
       break;
     case "Non-binary":
-      divClass += ' table__row-highlight_gender5';
+      divClass += ' table__row-highlight_nonbinary';
       break;
     case "Genderfluid":
-      divClass += ' table__row-highlight_gender6';
+      divClass += ' table__row-highlight_genderfluid';
       break;
     case "Agender":
-      divClass += ' table__row-highlight_gender7';
+      divClass += ' table__row-highlight_agender';
       break;
     case "Genderqueer":
-      divClass += ' table__row-highlight_gender8';
+      divClass += ' table__row-highlight_genderqueer';
       break;
     default:
       break;
@@ -39,4 +32,4 @@ function highlightGender(gender) {
   return <div className={divClass}>{gender}</div>;
 }
 
-export { createNameFromProperty, highlightGender };
+export { genderFormatter };
