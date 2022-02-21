@@ -1,18 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
 import i18n from '../../utils/i18n';
-import { useTranslation } from 'react-i18next';
 import Logo from '../logo';
 import Menu from '../menu';
-import { MainPage, FamilyTablePage } from '../pages';
-import { menuConfig } from '../../config';
+import { MainPage } from '../pages';
+import { configMenu } from '../../config';
 import './app.scss';
 
 function App() {
-const { t } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   }
+
+  const appRoutes = configMenu.items.map((item, i) => {
+    return (
+      <Route key={i} path={`/${item.url}`} element={item.page} />
+    )
+  });
+
   return (
     <div className="App">
       <div className="change-language">
@@ -26,9 +31,8 @@ const { t } = useTranslation();
         </div>
         <Routes>
           <Route path='/' element={<MainPage/>} />
-          {/* что-то придумать с конфигом: */}
-          <Route path={`/${menuConfig.items[0].url}`} element={<FamilyTablePage/>} />
-        </Routes>  
+          {appRoutes}
+        </Routes>
       </div>
     </div>
   );
