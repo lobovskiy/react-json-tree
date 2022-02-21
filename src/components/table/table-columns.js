@@ -1,13 +1,10 @@
-import { getConfigPropertyValue } from './table-helpers';
+function TableColumns({ row, rowKeys }) {
 
-function TableColumns({ row, columnsConfig }) {
-
-  if (columnsConfig?.length) {
+  if (rowKeys?.length) {
     return (
-      columnsConfig.map((columnParameters, columnIndex) => {
-        const rowKey = getConfigPropertyValue(columnParameters, 'dataField');
+      rowKeys.map((rowKey, i) => {
         return (
-          <div key={columnIndex}>{row[rowKey]}</div>
+          <div key={i}>{row[rowKey]}</div>
         )
       })
     )
