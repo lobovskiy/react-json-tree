@@ -1,16 +1,25 @@
-function TableColumns({ row, rowKeys }) {
+function TableColumns({ row, configColumns }) {
 
-  if (!rowKeys?.length) {
+  if (!configColumns?.length) {
     return null;
   }
 
   return (
-    rowKeys.map((rowKey, i) => {
+    configColumns.map((columnParameters, i) => {
+      const { formatter, dataField } = columnParameters;
+
+      const cell = row[dataField];
+      let className = '';
+
+      if (formatter) {
+        className = formatter(cell);
+      }
+
       return (
-        <div key={i}>
-          { row[rowKey] }
+        <div className={ className } key={ i }>
+          { cell }
         </div>
-      )
+      );
     })
   )
 }
