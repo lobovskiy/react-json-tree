@@ -7,19 +7,17 @@ function TableColumns({ row, configColumns }) {
   return (
     configColumns.map((columnParameters, i) => {
       const { formatter, dataField } = columnParameters;
-
-      const cell = row[dataField];
-      let className = '';
+      const key = `${row.id}${row[dataField]}`;
 
       if (formatter) {
-        className = formatter(cell);
+        return formatter(row[dataField], key);
+      } else {
+        return (
+          <div key={ key }>
+            { row[dataField] }
+          </div>
+        );
       }
-
-      return (
-        <div className={ className } key={ i }>
-          { cell }
-        </div>
-      );
     })
   )
 }

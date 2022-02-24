@@ -7,7 +7,7 @@ function TableHeader({ configColumns }) {
     <div className="table__row table__row_head">
       {
         configColumns.map((columnParameters, columnIndex) => {
-          const { text = '' } = columnParameters;
+          const { text } = columnParameters;
 
           return (
             <div key={ columnIndex }>
