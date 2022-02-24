@@ -1,14 +1,7 @@
 {
-  "Menu button": "Нажми меня",
   "Table header": "Члены семьи",
   "navigation": {
-    "table": "Таблица"
-  },
-  "very": {
-    "deeply": {
-      "nested": {
-        "key": "hereRU"
-      }
-    }
+    "table": "Таблица",
+    "tree": "Дерево"
   }
 }

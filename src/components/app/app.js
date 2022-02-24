@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <div className="change-language">
-        <button onClick={ () => handleChangeLanguage('ru') }>ru</button>
-        <button onClick={ () => handleChangeLanguage('en') }>en</button>
+        <button className="ru" onClick={ () => handleChangeLanguage('ru') }></button>
+        <button className="en" onClick={ () => handleChangeLanguage('en') }></button>
       </div>
       <div className="container">
         <div className="app-menu">

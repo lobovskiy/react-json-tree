@@ -1,11 +1,3 @@
-async function getData(url) {
-	const res = await fetch(url);
+import getTable from './get-table';
 
-	if (!res.ok) {
-    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-	}
-
-	return await res.json();
-}
-
-export {getData};
+export { getTable };

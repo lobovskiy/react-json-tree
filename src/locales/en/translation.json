@@ -1,14 +1,7 @@
 {
-  "Menu button": "Click me",
   "Table header": "Family members",
   "navigation": {
-    "table": "Table"
-  },
-  "very": {
-    "deeply": {
-      "nested": {
-        "key": "here"
-      }
-    }
+    "table": "Table",
+    "tree": "Tree"
   }
 }
