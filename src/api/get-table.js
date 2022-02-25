@@ -4,7 +4,7 @@ import { tableDTO } from '../dto';
 async function getTable() {
 	const data = await getData('http://localhost:3004/family');
 
-  const tableData = tableDTO(data);
+  const tableData = data.map(item => tableDTO(item));
 
 	return await tableData;
 }

@@ -1,12 +1,8 @@
-function tableDTO(data) {
-  const tableData = data.map(item => ({
-    id: item.id,
-    first_name: item.first_name,
-    last_name: item.last_name,
-    gender: item.gender
-  }));
-
-	return tableData;
-}
+const tableDTO = data => ({
+  id: data.id,
+  first_name: data.first_name,
+  last_name: data.last_name,
+  gender: data.gender
+})
 
 export default tableDTO;

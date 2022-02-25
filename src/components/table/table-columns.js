@@ -5,7 +5,7 @@ function TableColumns({ row, configColumns }) {
   }
 
   return (
-    configColumns.map((columnParameters, i) => {
+    configColumns.map(columnParameters => {
       const { formatter, dataField } = columnParameters;
       const key = `${row.id}${row[dataField]}`;
 
