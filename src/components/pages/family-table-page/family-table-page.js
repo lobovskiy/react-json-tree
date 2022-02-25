@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamily } from '../../store/reducer';
+import { fetchFamily } from '../../../store/reducer';
 import { useTranslation } from 'react-i18next';
-import Spinner from '../spinner';
-import Table from '../table';
-import { configTable } from '../../config';
+import Spinner from '../../spinner';
+import Table from '../../table';
+import { configTable } from '../../../config';
 
 function FamilyTablePage() {
   const familyData = useSelector(state => state.family.table);
@@ -17,9 +17,9 @@ function FamilyTablePage() {
     dispatch(fetchFamily());
   }, [dispatch]);
 
-  const content = isLoading
-    ? <Spinner />
-    : <Table data={ familyData } columns={ configTable.columns } />
+  const content = isLoading ?
+    <Spinner /> :
+    <Table data={ familyData } columns={ configTable.columns } />
 
   return (
     <div className="app-content">
