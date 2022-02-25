@@ -1,5 +1,4 @@
-import { FamilyTablePage } from '../components/pages';
-
+import { FamilyTablePage, FamilyTreePage } from '../components/pages';
 
 const configMenu = {
   items: [
@@ -8,6 +7,12 @@ const configMenu = {
       page: <FamilyTablePage />,
       icon: 'icon-table.svg',
       text: 'navigation.table'
+    },
+    {
+      url: 'tree',
+      page: <FamilyTreePage />,
+      icon: 'icon-tree.svg',
+      text: 'navigation.tree'
     }
   ]
 }

@@ -26,7 +26,7 @@ function Menu() {
         }
       >
         <div className="nav__item-bg"></div>
-        <div className="nav__item-img nav__item-img_violet"><img src={ iconsCatalog } alt='img' /></div>
+        <div className="nav__item-img"><img src={ iconsCatalog } alt='img' /></div>
         <div className="nav__item-text">{ t(item.text) }</div>
       </Link>
     )

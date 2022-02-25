@@ -1,5 +1,12 @@
 {
-  "Table header": "Family members",
+  "sections": {
+    "table": {
+      "header": "Family members table"
+    },
+    "tree": {
+      "header": "Family members tree"
+    }
+  },
   "navigation": {
     "table": "Table",
     "tree": "Tree"

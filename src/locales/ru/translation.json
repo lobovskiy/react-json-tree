@@ -1,5 +1,12 @@
 {
-  "Table header": "Члены семьи",
+  "sections": {
+    "table": {
+      "header": "Таблица членов семьи"
+    },
+    "tree": {
+      "header": "Дерево членов семьи"
+    }
+  },
   "navigation": {
     "table": "Таблица",
     "tree": "Дерево"

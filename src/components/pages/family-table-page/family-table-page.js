@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamily } from '../../../store/reducer';
+import { fetchFamilyTable } from '../../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import Spinner from '../../spinner';
 import Table from '../../table';
@@ -14,7 +14,7 @@ function FamilyTablePage() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchFamily());
+    dispatch(fetchFamilyTable());
   }, [dispatch]);
 
   const content = isLoading ?
@@ -23,7 +23,7 @@ function FamilyTablePage() {
 
   return (
     <div className="app-content">
-      <h1 className="app-content__title">{ t('Table header') }</h1>
+      <h1 className="app-content__title">{ t('sections.table.header') }</h1>
       { content }
     </div>
   )
