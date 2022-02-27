@@ -1,4 +1,4 @@
 import { genderFormatter } from './formatters';
-import { createTree } from './array-handlers';
+import { getRootParents } from './array-handlers';
 
-export { genderFormatter, createTree };
+export { genderFormatter, getRootParents };

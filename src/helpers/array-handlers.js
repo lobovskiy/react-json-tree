@@ -1,32 +1,48 @@
-function createTree(data) {
-  let tempData = data.map(item => item);
+function getRootParents(data) {
+  let rootParents = [];
   let indexedItems = [];
-  let tree = [];
+  let currentChainIndexes = [];
 
-  // function createChildren(i) {
-  //     if (!indexedItems.includes(data[i])) {
-  //       indexedItems.push(data[i].id);
+  // recursive chain search of parent item
+  // with checking of already indexed items and preventing chain loop
+  function findParents(arr, i) {
+    if (!indexedItems.includes(arr[i].id)) {
 
-  //       for (let j = 0; j < tempData.length; j++) {
-  //         if (!indexedItems.includes(tempData[j].id)) {
-  //           if (tempData[j].id === data[i].parent_id) {
-  //             indexedItems.push(data[j].id);
-  //             tempData[j].children = [];
-  //             tempData[i].children.push(data[j]);
-  //           }
-  //         }
-  //       }
+      // saving item index in common index array and for the current recursive chain
+      indexedItems.push(arr[i].id);
+      currentChainIndexes.push(arr[i].id);
 
-  //     // indexes.push(data[i].id);
+      if (currentChainIndexes.includes(arr[i].parent_id)) {    // loop check
+        rootParents.push(arr[i]);    // if there's a loop, consider current element as a root element
+        return;
+      }
 
-  // }
+      // searching for parents of current element in the array
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[i].parent_id === arr[j].id) {
 
-  // for (let i = 0; i < data.length; i++) {
-  //   createChildren(i)
-  // }
+          // if element's parent is already indexed, this chain doesn't have its own root parent
+          if (indexedItems.includes(arr[j].id)) {
+            return;
+          }
 
-  console.log(tempData);
-  return data;
+          // recursively get parents for the current parent element
+          findParents(arr, j);
+          return;
+        }
+      }
+
+      rootParents.push(arr[i]);    // make current element root if it hasn't got any parents in the array
+    }
+  }
+
+  // search parent items in the all data array
+  for (let i = 0; i < data.length; i++) {
+    currentChainIndexes = [];   // make empty array of current chain items indexes for every iteration
+    findParents(data, i);
+  }
+  
+  return rootParents;
 }
 
-export { createTree };
+export { getRootParents };
