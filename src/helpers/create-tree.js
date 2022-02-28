@@ -1,25 +1,25 @@
 function getRootParents(data) {
-  let rootParents = [];
-  let indexedItems = [];
+  const rootParents = [];
+  const indexedItems = [];
   let currentChainIndexes = [];
 
   // recursive chain search of parent item
   // with checking of already indexed items and preventing chain loop
   function findParents(arr, i) {
-    if (!indexedItems.includes(arr[i].id)) {
+    if (!indexedItems.includes(arr[i]?.id)) {
 
       // saving item index in common index array and for the current recursive chain
       indexedItems.push(arr[i].id);
       currentChainIndexes.push(arr[i].id);
 
-      if (currentChainIndexes.includes(arr[i].parent_id)) {    // loop check
+      if (currentChainIndexes.includes(arr[i].parentId)) {    // loop check
         rootParents.push(arr[i]);    // if there's a loop, consider current element as a root element
         return;
       }
 
       // searching for parents of current element in the array
       for (let j = 0; j < arr.length; j++) {
-        if (arr[i].parent_id === arr[j].id) {
+        if (arr[i].parentId === arr[j].id) {
 
           // if element's parent is already indexed, this chain doesn't have its own root parent
           if (indexedItems.includes(arr[j].id)) {
@@ -53,7 +53,7 @@ function createTreeArray(data, rootItems) {
   function findChildren(item) {
     item.children = [];
     for (let i = 0; i < data.length; i++) {
-      if (data[i].parent_id === item.id && !indexedItems.includes(data[i].id)) {
+      if (data[i].parentId === item.id && !indexedItems.includes(data[i].id)) {
         item.children.push(data[i]);
         findChildren(data[i]);
       }

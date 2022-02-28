@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFamilyTree } from '../../../store/reducer';
 import { useTranslation } from 'react-i18next';
+import Tree from '../tree';
 import Spinner from '../../spinner';
 
 function FamilyTreePage() {
@@ -9,27 +10,15 @@ function FamilyTreePage() {
   const isLoading = useSelector(state => state.loading);
   const dispatch = useDispatch();
 
-  let family = null;
-
   const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchFamilyTree());
   }, [dispatch]);
 
-  if (familyData?.length) {
-    family = familyData.map((item, i) => {
-      return (
-        <div key={ i }>
-          { item.first_name }
-        </div>
-      )
-    });
-  }
-
   const content = isLoading ?
     <Spinner /> :
-    family;
+    <Tree data={ familyData } />;
 
   return (
     <div className="app-content">
