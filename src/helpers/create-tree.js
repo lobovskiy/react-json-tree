@@ -41,8 +41,28 @@ function getRootParents(data) {
     currentChainIndexes = [];   // make empty array of current chain items indexes for every iteration
     findParents(data, i);
   }
-  
+
   return rootParents;
 }
 
-export { getRootParents };
+
+function createTreeArray(data, rootItems) {
+  let indexedItems = [];
+  rootItems.forEach(item => indexedItems.push(item.id));
+
+  function findChildren(item) {
+    item.children = [];
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].parent_id === item.id && !indexedItems.includes(data[i].id)) {
+        item.children.push(data[i]);
+        findChildren(data[i]);
+      }
+    }
+  }
+
+  rootItems.forEach(item => findChildren(item));
+  console.log(rootItems);
+  return rootItems;
+}
+
+export { getRootParents, createTreeArray };
