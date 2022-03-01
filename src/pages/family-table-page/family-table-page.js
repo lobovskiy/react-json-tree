@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamilyTable } from '../../../store/reducer';
+import { fetchFamilyTable } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
-import Spinner from '../../spinner';
-import Table from '../../table';
-import { configTable } from '../../../config';
+import Spinner from '../../components/spinner';
+import Table from '../../components/table';
+import { configTable } from '../../config';
 
 function FamilyTablePage() {
   const familyData = useSelector(state => state.family.table);
@@ -23,7 +23,7 @@ function FamilyTablePage() {
 
   return (
     <div className="app-content">
-      <h1 className="app-content__title">{ t('sections.table.header') }</h1>
+      <h1 className="app-content__title">{ t('sections.family-table.header') }</h1>
       { content }
     </div>
   )

@@ -1,9 +1,9 @@
 {
   "sections": {
-    "table": {
+    "family-table": {
       "header": "Таблица членов семьи"
     },
-    "tree": {
+    "family-tree": {
       "header": "Дерево членов семьи"
     }
   },

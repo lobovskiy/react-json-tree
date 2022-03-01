@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import i18n from '../../utils/i18n';
 import Logo from '../logo';
 import Menu from '../menu';
-import { MainPage } from '../pages';
+import { MainPage } from '../../pages';
 import { configMenu } from '../../config';
 import './app.scss';
 

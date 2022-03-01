@@ -1,4 +1,4 @@
-import { FamilyTablePage, FamilyTreePage } from '../components/pages';
+import { FamilyTablePage, FamilyTreePage } from '../pages';
 
 const configMenu = {
   items: [

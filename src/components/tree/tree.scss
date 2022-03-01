@@ -1,0 +1,54 @@
+.tree {
+  .tree__node {
+    .tree__node-name {
+      margin: 0 0 10px;
+      padding: 15px 15px 15px 30px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      text-align-last: left;
+      background: #FFF;
+    }
+
+    .tree__node-arrow {
+      position: absolute;
+      display: block;
+      margin-left: -15px;
+      cursor: pointer;
+    }
+
+    .tree__node {
+      margin-left: 30px;
+      position: relative;
+
+      &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        margin-left: -15px;
+        background-color: rgb(232 231 249);
+        width: 10px;
+        height: 2px;
+        top: calc(0.5em + 15px);
+      }
+
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        margin-left: -15px;
+        background-color: rgb(232 231 249);
+        width: 2px;
+        height: calc(100% + 10px);
+        top: 0;
+      }
+
+      &:last-child {
+        &::after {
+          width: 2px;
+          height: calc(0.5em + 15px);
+        }
+      }
+    }
+  }
+}

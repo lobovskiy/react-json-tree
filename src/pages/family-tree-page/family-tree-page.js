@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamilyTree } from '../../../store/reducer';
+import { fetchFamilyTree } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
-import Tree from '../tree';
-import Spinner from '../../spinner';
+import Tree from '../../components/tree';
+import Spinner from '../../components/spinner';
 
 function FamilyTreePage() {
   const familyData = useSelector(state => state.family.tree);
@@ -16,14 +16,14 @@ function FamilyTreePage() {
     dispatch(fetchFamilyTree());
   }, [dispatch]);
 
-  const content = isLoading ?
+  const tree = isLoading ?
     <Spinner /> :
     <Tree data={ familyData } />;
 
   return (
-    <div className="app-content">
-      <h1 className="app-content__title">{ t('sections.tree.header') }</h1>
-      { content }
+    <div className="app-content tree">
+      <h1 className="app-content__title">{ t('sections.family-tree.header') }</h1>
+      { tree }
     </div>
   )
 }
