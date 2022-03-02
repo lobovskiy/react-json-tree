@@ -13,9 +13,8 @@ function TreeNode({ data, level = 1 }) {
       }
 
       return (
-        <div className="tree__node" key={ i } data-level={ level } >
+        <div className="tree__node hidden" key={ i } data-level={ level } >
           <div className="tree__node-name">
-            <div className="tree__node-arrow">{ arrow }</div>
             { item.firstName } { item.lastName }
           </div>
           <TreeNode data={ item.children } level={ level + 1 } />
