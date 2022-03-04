@@ -1,6 +1,7 @@
 {
   "name": "project4-tree-v4",
   "version": "0.1.0",
+  "homepage": "http://lobovskiy.github.io/react-json-tree/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -28,7 +29,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-with-json": "start-server-and-test start 3000 json"
+    "start-with-json": "start-server-and-test start 3000 json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "jest": "^27.5.1",
     "json-server": "^0.17.0",
     "start-server-and-test": "^1.14.0"

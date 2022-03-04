@@ -61,7 +61,6 @@ function createTreeArray(data, rootItems) {
   }
 
   rootItems.forEach(item => findChildren(item));
-  console.log(rootItems);
   return rootItems;
 }
 
