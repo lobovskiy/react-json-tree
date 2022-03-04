@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-json-tree/static/css/main.50cad913.css",
+    "main.js": "/react-json-tree/static/js/main.c776d162.js",
+    "static/js/787.018a765e.chunk.js": "/react-json-tree/static/js/787.018a765e.chunk.js",
+    "static/media/Nunito-Regular.ttf": "/react-json-tree/static/media/Nunito-Regular.325f6b17880102deb0a8.ttf",
+    "static/media/Nunito-SemiBold.ttf": "/react-json-tree/static/media/Nunito-SemiBold.6a5a212cd3c4da7e7ba8.ttf",
+    "static/media/Nunito-Bold.ttf": "/react-json-tree/static/media/Nunito-Bold.4553e8e307fb4dc343b7.ttf",
+    "static/media/icon-tree.svg": "/react-json-tree/static/media/icon-tree.d19ebc74fa8d9289504f.svg",
+    "static/media/arrow-right.svg": "/react-json-tree/static/media/arrow-right.eb3765782058cf82308f.svg",
+    "static/media/logo.svg": "/react-json-tree/static/media/logo.f09e95e994e77ea0a7de7a6e8dc3929e.svg",
+    "static/media/icon-table.svg": "/react-json-tree/static/media/icon-table.ca242e18d2fa0691b52e.svg",
+    "index.html": "/react-json-tree/index.html",
+    "static/media/trail-item.svg": "/react-json-tree/static/media/trail-item.a1ad2ee8a916951db758.svg",
+    "static/media/trail-item-last.svg": "/react-json-tree/static/media/trail-item-last.1389e3095ccf16ca783c.svg",
+    "static/media/marker-expanded-on.svg": "/react-json-tree/static/media/marker-expanded-on.ae2bf2e4d54b4bb63ea5.svg",
+    "static/media/marker-expanded-off.svg": "/react-json-tree/static/media/marker-expanded-off.f94c98667225d1dab78c.svg",
+    "static/media/trail-through.svg": "/react-json-tree/static/media/trail-through.17e3c81e2014672a6b58.svg",
+    "main.50cad913.css.map": "/react-json-tree/static/css/main.50cad913.css.map",
+    "main.c776d162.js.map": "/react-json-tree/static/js/main.c776d162.js.map",
+    "787.018a765e.chunk.js.map": "/react-json-tree/static/js/787.018a765e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50cad913.css",
+    "static/js/main.c776d162.js"
+  ]
+}
