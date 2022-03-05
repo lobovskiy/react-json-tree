@@ -6,14 +6,14 @@ function TreeNode({ data, level = 1 }) {
   }
 
   return (
-    <div className="tree__node-children">
+    <div className="tree__node-children hidden">
       {
         data.map((item, i) => {
           return (
             <div
               className={
                 classNames(
-                  'tree__node', 'hidden',
+                  'tree__node',
                   { 'tree__node_no-children': !item?.children?.length }
                 )
               }

@@ -6,16 +6,14 @@ function expandChildNodes(event) {
 		target?.nextElementSibling?.classList.contains('tree__node-children') ?
 			target.nextElementSibling :
 			null;
-	
+
 	if (childrenDiv) {
 			target.parentNode.classList.toggle('tree__node_expanded');
-			childrenDiv.childNodes.forEach(child => {
-				if (child.classList.contains('hidden')) {
-					child.classList.remove('hidden');
-				} else {
-					child.classList.add('hidden');
+      if (childrenDiv.classList.contains('hidden')) {
+        childrenDiv.classList.remove('hidden');
+      } else {
+        childrenDiv.classList.add('hidden');
 				}
-			});
 	}
 }
 

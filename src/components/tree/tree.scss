@@ -1,5 +1,14 @@
 .tree {
-  .tree__node {
+  &__node {
+    position: relative;
+    padding-left: 0;
+    overflow-y: hidden;
+
+    &-children {
+
+      transform-origin: top;
+      animation: dropdown 4s;
+    }
 
     &_expanded {
 
@@ -48,11 +57,8 @@
     }
 
     .tree__node {
-      margin-left: 30px;
+      padding-left: 30px;
       position: relative;
-
-      animation-name: drop-down;
-      animation-duration: .5s;
 
       &::before {
         content: ' ';
@@ -88,11 +94,13 @@
   display: none;
 }
 
-@keyframes drop-down {
+@keyframes dropdown {
   0%{
-    margin-top: calc(-15px - 1em - 15px);
+    // transform: scaleY(0);
+    max-height: 0px;
   }
   100%{
-    margin-top: 0;
+    // transform: scaleY(1);
+    max-height: 9999px;
   }
 }
