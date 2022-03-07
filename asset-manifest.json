@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-json-tree/static/css/main.c0efd9c1.css",
-    "main.js": "/react-json-tree/static/js/main.a0002686.js",
+    "main.js": "/react-json-tree/static/js/main.60680765.js",
     "static/js/787.018a765e.chunk.js": "/react-json-tree/static/js/787.018a765e.chunk.js",
     "static/media/Nunito-Regular.ttf": "/react-json-tree/static/media/Nunito-Regular.325f6b17880102deb0a8.ttf",
     "static/media/Nunito-SemiBold.ttf": "/react-json-tree/static/media/Nunito-SemiBold.6a5a212cd3c4da7e7ba8.ttf",
@@ -17,11 +17,11 @@
     "static/media/marker-expanded-off.svg": "/react-json-tree/static/media/marker-expanded-off.f94c98667225d1dab78c.svg",
     "static/media/trail-through.svg": "/react-json-tree/static/media/trail-through.17e3c81e2014672a6b58.svg",
     "main.c0efd9c1.css.map": "/react-json-tree/static/css/main.c0efd9c1.css.map",
-    "main.a0002686.js.map": "/react-json-tree/static/js/main.a0002686.js.map",
+    "main.60680765.js.map": "/react-json-tree/static/js/main.60680765.js.map",
     "787.018a765e.chunk.js.map": "/react-json-tree/static/js/787.018a765e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c0efd9c1.css",
-    "static/js/main.a0002686.js"
+    "static/js/main.60680765.js"
   ]
 }
