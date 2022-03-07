@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-json-tree/static/css/main.50cad913.css",
-    "main.js": "/react-json-tree/static/js/main.9bcdcd7c.js",
+    "main.css": "/react-json-tree/static/css/main.c0efd9c1.css",
+    "main.js": "/react-json-tree/static/js/main.b05e2ed9.js",
     "static/js/787.018a765e.chunk.js": "/react-json-tree/static/js/787.018a765e.chunk.js",
     "static/media/Nunito-Regular.ttf": "/react-json-tree/static/media/Nunito-Regular.325f6b17880102deb0a8.ttf",
     "static/media/Nunito-SemiBold.ttf": "/react-json-tree/static/media/Nunito-SemiBold.6a5a212cd3c4da7e7ba8.ttf",
@@ -16,12 +16,12 @@
     "static/media/marker-expanded-on.svg": "/react-json-tree/static/media/marker-expanded-on.ae2bf2e4d54b4bb63ea5.svg",
     "static/media/marker-expanded-off.svg": "/react-json-tree/static/media/marker-expanded-off.f94c98667225d1dab78c.svg",
     "static/media/trail-through.svg": "/react-json-tree/static/media/trail-through.17e3c81e2014672a6b58.svg",
-    "main.50cad913.css.map": "/react-json-tree/static/css/main.50cad913.css.map",
-    "main.9bcdcd7c.js.map": "/react-json-tree/static/js/main.9bcdcd7c.js.map",
+    "main.c0efd9c1.css.map": "/react-json-tree/static/css/main.c0efd9c1.css.map",
+    "main.b05e2ed9.js.map": "/react-json-tree/static/js/main.b05e2ed9.js.map",
     "787.018a765e.chunk.js.map": "/react-json-tree/static/js/787.018a765e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50cad913.css",
-    "static/js/main.9bcdcd7c.js"
+    "static/css/main.c0efd9c1.css",
+    "static/js/main.b05e2ed9.js"
   ]
 }
