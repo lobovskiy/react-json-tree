@@ -5,9 +5,8 @@
     overflow-y: hidden;
 
     &-children {
-
-      transform-origin: top;
-      animation: dropdown 4s;
+      transition: max-height .6s;
+      max-height: 9999px;
     }
 
     &_expanded {
@@ -20,6 +19,11 @@
           -o-transform: rotate(90deg); /* Для Opera */
           transform: rotate(90deg);
         }
+      }
+
+      & > .tree__node-children {
+        transform-origin: top;
+        // animation: dropdown 4s;
       }
     }
 
@@ -91,16 +95,5 @@
 }
 
 .hidden {
-  display: none;
-}
-
-@keyframes dropdown {
-  0%{
-    // transform: scaleY(0);
-    max-height: 0px;
-  }
-  100%{
-    // transform: scaleY(1);
-    max-height: 9999px;
-  }
+  max-height: 0;
 }
