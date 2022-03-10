@@ -1,7 +1,8 @@
 const defaultState = {
   family: {
     table: [],
-    tree: []
+    tree: [],
+    asyncTree: []
   },
   loading: false
 };
