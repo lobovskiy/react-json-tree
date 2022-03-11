@@ -1,11 +1,16 @@
 import TreeNode from './tree-node';
-import { expandChildNodes as handleClick } from './tree-handlers';
+import { handleExpandSync, handleExpandAsync } from './tree-handlers';
 import './tree.scss';
 
-function Tree({ data }) {
+function Tree({ data, expandFunc = 'handleExpandSync' }) {
 
   if (!data?.length) {
     return null;
+  }
+
+  const handleClick = {
+    handleExpandSync: handleExpandSync,
+    handleExpandAsync: handleExpandAsync
   }
 
   return (
@@ -13,8 +18,8 @@ function Tree({ data }) {
       {
         data.map((item, i) => {
           return (
-            <div className="tree__node" key={ i } onClick={ handleClick }>
-              <div className="tree__node-name">
+            <div className="tree__node" key={ i } onClick={ handleClick[expandFunc] }>
+              <div className="tree__node-name" data-id={ item.id }>
                 { item.firstName } { item.lastName }
               </div>
                 <TreeNode data={ item.children } />

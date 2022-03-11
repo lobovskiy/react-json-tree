@@ -5,10 +5,14 @@
     },
     "family-tree": {
       "header": "Family members tree"
+    },
+    "family-async-tree": {
+      "header": "Family members async tree"
     }
   },
   "navigation": {
     "table": "Table",
-    "tree": "Tree"
+    "tree": "Tree",
+    "async-tree": "A-Tree"
   }
 }

@@ -1,31 +1,31 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamilyTree } from '../../store/reducer';
+import { fetchFamilyRoots } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import Tree from '../../components/tree';
 import Spinner from '../../components/spinner';
 
-function FamilyTreePage() {
-  const familyData = useSelector(state => state.family.tree);
+function FamilyTreeAsyncPage() {
+  const familyData = useSelector(state => state.family.asyncTree);
   const isLoading = useSelector(state => state.loading);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchFamilyTree());
+    dispatch(fetchFamilyRoots());
   }, [dispatch]);
 
   const tree = isLoading ?
     <Spinner /> :
-    <Tree data={ familyData } />;
+    <Tree data={ familyData } expandFunc="handleExpandAsync" />;
 
   return (
     <div className="app-content tree">
-      <h1 className="app-content__title">{ t('sections.family-tree.header') }</h1>
+      <h1 className="app-content__title">{ t('sections.family-async-tree.header') }</h1>
       { tree }
     </div>
   )
 }
 
-export default FamilyTreePage;
+export default FamilyTreeAsyncPage;

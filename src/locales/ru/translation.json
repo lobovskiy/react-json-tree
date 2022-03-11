@@ -5,10 +5,14 @@
     },
     "family-tree": {
       "header": "Дерево членов семьи"
+    },
+    "family-async-tree": {
+      "header": "Асинхронное дерево членов семьи"
     }
   },
   "navigation": {
     "table": "Таблица",
-    "tree": "Дерево"
+    "tree": "Дерево",
+    "async-tree": "А-Дерево"
   }
 }
