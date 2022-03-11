@@ -1,3 +1,5 @@
+import { fetchFamilyChildren } from '../../store/reducer';
+
 function handleExpandSync(event) {
 	const target = event.target;
 	const childrenDiv =
@@ -19,9 +21,10 @@ function handleExpandSync(event) {
 	}
 }
 
-function handleExpandAsync(event) {
+function handleExpandAsync(event, dispatch) {
 	const target = event.target;
-  console.dir(target.getAttribute('data-id'));
+  // console.dir(target.getAttribute('data-id'));
+  dispatch(fetchFamilyChildren(target.getAttribute('data-id')));
 }
 
 export { handleExpandSync, handleExpandAsync };
