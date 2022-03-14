@@ -1,6 +1,7 @@
-import { getRootParents, createTreeArray } from './create-tree';
+import { getRootParents, createTreeArray, getChildren } from './create-tree';
 
 export {
   getRootParents,
-  createTreeArray
+  createTreeArray,
+  getChildren
 };

@@ -16,22 +16,22 @@ function* fetchFamilyTableWorker() {
 
 function* fetchFamilyTreeWorker() {
   yield put(startLoading());
-  yield call(() => new Promise(res => setTimeout(res, 1000)));
+  yield delay(1000);
   const data = yield call(() => getTree());
   yield put(addFamilyTree(data));
 }
 
 function* fetchFamilyRootsWorker() {
   yield put(startLoading());
-  yield call(() => new Promise(res => setTimeout(res, 1000)));
+  yield delay(1000);
   const data = yield call(() => getRoots());
   yield put(addFamilyRoots(data));
 }
 
 function* fetchFamilyChildrenWorker({ payload: { id } }) {
-  yield call(() => new Promise(res => setTimeout(res, 1000)));
+  yield delay(1000);
   const children = yield call(() => getChildren(id));
-  yield put(addFamilyChildren(id));
+  yield put(addFamilyChildren(id, children));
 }
 
 export function* familyWatcher() {

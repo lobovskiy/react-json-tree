@@ -18,7 +18,7 @@ function FamilyTreeAsyncPage() {
 
   const tree = isLoading ?
     <Spinner /> :
-    <Tree data={ familyData } expandFunc="handleExpandAsync" />;
+    <Tree data={ familyData } async={ true } />;
 
   return (
     <div className="app-content tree">
