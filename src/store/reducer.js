@@ -13,6 +13,7 @@ const ADD_FAMILY_ROOTS = 'ADD_FAMILY_ROOTS';
 const ADD_FAMILY_CHILDREN = 'ADD_FAMILY_CHILDREN';
 
 const START_LOADING = 'START_LOADING';
+const START_BRANCH_LOADING = 'START_BRANCH_LOADING';
 
 export const FETCH_FAMILY_TABLE = 'FETCH_FAMILY_TABLE';
 export const FETCH_FAMILY_TREE = 'FETCH_FAMILY_TREE';
@@ -28,12 +29,9 @@ export const reducer = (state = defaultState, action) => {
     case ADD_FAMILY_ROOTS: {
       return { ...state, family: { asyncTree: [...action.payload] }, loading: false };
     }
-    case ADD_FAMILY_CHILDREN:
+    case ADD_FAMILY_CHILDREN: {
       const { id, children } = action.payload;
-      console.log(id);
       let newAsyncTree = JSON.parse(JSON.stringify(state.family.asyncTree));
-
-      console.log(children);
 
       function addChildrenById(tree, id) {
         let isAdded = false;
@@ -43,6 +41,7 @@ export const reducer = (state = defaultState, action) => {
           for (let i = 0; i < branch.length; i++) {
             if (branch[i].id === id) {
               branch[i].isLoaded = true;
+              branch[i].isLoading = false;
               branch[i].children = children;
               isAdded = true;
               break;
@@ -60,10 +59,40 @@ export const reducer = (state = defaultState, action) => {
       }
 
       addChildrenById(newAsyncTree, id);
-      console.log(newAsyncTree);
       return { ...state, family: { asyncTree: newAsyncTree } };
+    }
     case START_LOADING:
       return { ...state, loading: true };
+    case START_BRANCH_LOADING: {
+      const { id } = action.payload;
+      let newAsyncTree = JSON.parse(JSON.stringify(state.family.asyncTree));
+
+      function setLoaderById(tree, id) {
+        let isSet = false;
+
+        function setLoader(branch) {
+
+          for (let i = 0; i < branch.length; i++) {
+            if (branch[i].id === id) {
+              branch[i].isLoading = true;
+              isSet = true;
+              break;
+            }
+
+            if (branch[i]?.children?.length) {
+              setLoader(branch[i].children);
+            }
+
+            if (isSet) break;
+          }
+        }
+
+        setLoader(tree);
+      }
+
+      setLoaderById(newAsyncTree, id);
+      return { ...state, family: { asyncTree: newAsyncTree } };
+    }
 		default:
 			return state;
 	}
@@ -75,6 +104,7 @@ export const addFamilyRoots = (payload) => ({ type: ADD_FAMILY_ROOTS, payload })
 export const addFamilyChildren = (id, children) => ({ type: ADD_FAMILY_CHILDREN, payload: { id, children } });
 
 export const startLoading = () => ({ type: START_LOADING });
+export const startBranchLoading = (id) => ({ type: START_BRANCH_LOADING, payload: { id } });
 
 export const fetchFamilyTable = () => ({ type: FETCH_FAMILY_TABLE });
 export const fetchFamilyTree = () => ({ type: FETCH_FAMILY_TREE });

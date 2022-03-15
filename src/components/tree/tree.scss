@@ -87,6 +87,19 @@
 
       display: none;
     }
+
+    .app-spinner {
+      display: inline;
+
+      .lds-ellipsis {
+        position: absolute;
+        height: 1em;
+
+        div {
+          top: 0;
+        }
+      }
+    }
   }
 }
 

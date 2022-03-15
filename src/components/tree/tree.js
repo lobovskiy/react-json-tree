@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { fetchFamilyChildren } from '../../store/reducer';
 import TreeNode from './tree-node';
+import Spinner from '../spinner';
 import './tree.scss';
 
 function Tree({ data, async = false }) {
@@ -46,10 +47,14 @@ function Tree({ data, async = false }) {
     <div className="app-tree">
       {
         data.map((item, i) => {
+          const branchLoader = item.isLoading
+            ? <Spinner />
+            : null;
+
           return (
             <div className="tree__node" key={ i } onClick={ handleExpand }>
               <div className="tree__node-name" data-id={ item.id }>
-                { item.firstName } { item.lastName }
+                { item.firstName } { item.lastName } { branchLoader }
               </div>
                 <TreeNode data={ item.children } async={ async } />
             </div>
