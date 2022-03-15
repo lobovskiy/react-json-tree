@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { fetchFamilyChildren } from '../../store/reducer';
+import classNames from 'classnames/bind';
+import { fetchFamilyChildren, toggleExpand } from '../../store/reducer';
 import TreeNode from './tree-node';
 import Spinner from '../spinner';
 import './tree.scss';
@@ -7,56 +8,37 @@ import './tree.scss';
 function Tree({ data, async = false }) {
   const dispatch = useDispatch();
 
-  function handleExpand(event) {
-    const target = event.target;
-    if (async) {
-      // if (target.parentNode.getAttribute('data-loaded') )
-      if(target.parentNode.getAttribute('data-loaded') !== '') {
-        target.parentNode.setAttribute('data-loaded', '');
-        dispatch(fetchFamilyChildren(+target.getAttribute('data-id')));
-      }
-      target.parentNode.classList.toggle('tree__node_expanded');
-
-    } else {
-
-      const childrenDiv =
-        target
-        && target?.classList.contains('tree__node-name')
-        && target?.nextElementSibling?.classList.contains('tree__node-children')
-          ? target.nextElementSibling
-          : null;
-
-      if (childrenDiv) {
-          target.parentNode.classList.toggle('tree__node_expanded');
-          childrenDiv.childNodes.forEach(child => {
-            if (child.classList.contains('hidden')) {
-              child.classList.remove('hidden');
-            } else {
-              child.classList.add('hidden');
-            }
-          });
-      }
-    }
-  }
-
   if (!data?.length) {
     return null;
+  }
+
+  function handleExpand(node) {
+    const { id, isLoaded } = node;
+    dispatch(toggleExpand(id, async));
+
+    if (async && !isLoaded) {
+      dispatch(fetchFamilyChildren(id));
+    }
   }
 
   return (
     <div className="app-tree">
       {
-        data.map((item, i) => {
-          const branchLoader = item.isLoading
+        data.map((node, i) => {
+
+          const branchLoader = node.isLoading
             ? <Spinner />
             : null;
 
           return (
-            <div className="tree__node" key={ i } onClick={ handleExpand }>
-              <div className="tree__node-name" data-id={ item.id }>
-                { item.firstName } { item.lastName } { branchLoader }
+            <div
+              className={ classNames('tree__node', { tree__node_expanded: node.isExpanded }) }
+              key={ i }
+            >
+              <div className="tree__node-name" onClick={ () => handleExpand(node) } >
+                { node.firstName } { node.lastName } { branchLoader }
               </div>
-                <TreeNode data={ item.children } async={ async } />
+              <TreeNode data={ node.children } async={ async } handleClick={ handleExpand } />
             </div>
           )
         })

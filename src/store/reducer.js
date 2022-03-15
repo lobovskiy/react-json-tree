@@ -14,6 +14,7 @@ const ADD_FAMILY_CHILDREN = 'ADD_FAMILY_CHILDREN';
 
 const START_LOADING = 'START_LOADING';
 const START_BRANCH_LOADING = 'START_BRANCH_LOADING';
+const TOGGLE_EXPAND = 'TOGGLE_EXPAND';
 
 export const FETCH_FAMILY_TABLE = 'FETCH_FAMILY_TABLE';
 export const FETCH_FAMILY_TREE = 'FETCH_FAMILY_TREE';
@@ -24,11 +25,14 @@ export const reducer = (state = defaultState, action) => {
 	switch (action.type) {
     case ADD_FAMILY_TABLE:
       return { ...state, family: { table: [...action.payload] }, loading: false };
+
     case ADD_FAMILY_TREE:
       return { ...state, family: { tree: [...action.payload] }, loading: false };
+
     case ADD_FAMILY_ROOTS: {
       return { ...state, family: { asyncTree: [...action.payload] }, loading: false };
     }
+
     case ADD_FAMILY_CHILDREN: {
       const { id, children } = action.payload;
       let newAsyncTree = JSON.parse(JSON.stringify(state.family.asyncTree));
@@ -61,8 +65,10 @@ export const reducer = (state = defaultState, action) => {
       addChildrenById(newAsyncTree, id);
       return { ...state, family: { asyncTree: newAsyncTree } };
     }
+
     case START_LOADING:
       return { ...state, loading: true };
+
     case START_BRANCH_LOADING: {
       const { id } = action.payload;
       let newAsyncTree = JSON.parse(JSON.stringify(state.family.asyncTree));
@@ -93,6 +99,42 @@ export const reducer = (state = defaultState, action) => {
       setLoaderById(newAsyncTree, id);
       return { ...state, family: { asyncTree: newAsyncTree } };
     }
+
+    case TOGGLE_EXPAND: {
+      const { id, async = false } = action.payload;
+      let newTree = async
+        ? JSON.parse(JSON.stringify(state.family.asyncTree))
+        : JSON.parse(JSON.stringify(state.family.tree));
+
+      function toggleExpandById(tree, id) {
+        let isToggled = false;
+
+        function toggleExpand(branch) {
+
+          for (let i = 0; i < branch.length; i++) {
+            if (branch[i].id === id) {
+              branch[i].isExpanded = !branch[i].isExpanded; // isExpanded изначально undefined, надо подумать
+              isToggled = true;
+              break;
+            }
+
+            if (branch[i]?.children?.length) {
+              toggleExpand(branch[i].children);
+            }
+
+            if (isToggled) break;
+          }
+        }
+
+        toggleExpand(tree);
+      }
+
+      toggleExpandById(newTree, id);
+      return async
+        ? { ...state, family: { asyncTree: newTree } }
+        : { ...state, family: { tree: newTree } };
+    }
+
 		default:
 			return state;
 	}
@@ -105,6 +147,7 @@ export const addFamilyChildren = (id, children) => ({ type: ADD_FAMILY_CHILDREN,
 
 export const startLoading = () => ({ type: START_LOADING });
 export const startBranchLoading = (id) => ({ type: START_BRANCH_LOADING, payload: { id } });
+export const toggleExpand = (id, async) => ({ type: TOGGLE_EXPAND, payload: { id, async } });
 
 export const fetchFamilyTable = () => ({ type: FETCH_FAMILY_TABLE });
 export const fetchFamilyTree = () => ({ type: FETCH_FAMILY_TREE });
