@@ -4,6 +4,7 @@ import { fetchFamilyRoots } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import Tree from '../../components/tree';
 import Spinner from '../../components/spinner';
+import './family-tree-async-page.scss';
 
 function FamilyTreeAsyncPage() {
   const familyData = useSelector(state => state.family.asyncTree);
@@ -16,9 +17,9 @@ function FamilyTreeAsyncPage() {
     dispatch(fetchFamilyRoots());
   }, [dispatch]);
 
-  const tree = isLoading ?
-    <Spinner /> :
-    <Tree data={ familyData } async={ true } />;
+  const tree = isLoading
+    ? <div className="async-tree-spinner"><Spinner /></div>
+    : <Tree data={ familyData } async={ true } />;
 
   return (
     <div className="app-content tree">

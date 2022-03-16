@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Spinner from '../../components/spinner';
 import Table from '../../components/table';
 import { configTable } from '../../config';
+import './family-table-page.scss';
 
 function FamilyTablePage() {
   const familyData = useSelector(state => state.family.table);
@@ -17,9 +18,9 @@ function FamilyTablePage() {
     dispatch(fetchFamilyTable());
   }, [dispatch]);
 
-  const content = isLoading ?
-    <Spinner /> :
-    <Table data={ familyData } columns={ configTable.columns } />
+  const content = isLoading
+    ? <div className="table-spinner"><Spinner /></div>
+    : <Table data={ familyData } columns={ configTable.columns } />
 
   return (
     <div className="app-content">
