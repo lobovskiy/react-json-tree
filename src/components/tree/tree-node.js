@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import Spinner from '../spinner';
 
-function TreeNode({ data, async, handleClick, level = 1 }) {
+function TreeNode({ data, async, onClick, level = 1 }) {
   if (!data?.length) {
     return null;
   }
@@ -11,7 +11,7 @@ function TreeNode({ data, async, handleClick, level = 1 }) {
       {
         data.map((node, i) => {
           const branchLoader = node.isLoading
-            ? <Spinner />
+            ? <Spinner size="small" />
             : null;
 
           return (
@@ -26,10 +26,10 @@ function TreeNode({ data, async, handleClick, level = 1 }) {
               key={ i }
               data-level={ level }
             >
-              <div className="tree__node-name" onClick={ () => handleClick(node) } >
+              <div className="tree__node-name" onClick={ () => onClick(node) } >
                 { node.firstName } { node.lastName } { branchLoader }
               </div>
-              <TreeNode data={ node.children } level={ level + 1 } async={ async } handleClick={ handleClick } />
+              <TreeNode data={ node.children } level={ level + 1 } async={ async } onClick={ onClick } />
             </div>
           )
         })

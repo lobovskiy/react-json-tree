@@ -14,10 +14,11 @@ function Tree({ data, async = false }) {
 
   function handleExpand(node) {
     const { id, isLoaded } = node;
-    dispatch(toggleExpand(id, async));
 
     if (async && !isLoaded) {
       dispatch(fetchFamilyChildren(id));
+    } else {
+      dispatch(toggleExpand(id, async));
     }
   }
 
@@ -27,7 +28,7 @@ function Tree({ data, async = false }) {
         data.map((node, i) => {
 
           const branchLoader = node.isLoading
-            ? <Spinner />
+            ? <Spinner size="small" />
             : null;
 
           return (
@@ -38,7 +39,7 @@ function Tree({ data, async = false }) {
               <div className="tree__node-name" onClick={ () => handleExpand(node) } >
                 { node.firstName } { node.lastName } { branchLoader }
               </div>
-              <TreeNode data={ node.children } async={ async } handleClick={ handleExpand } />
+              <TreeNode data={ node.children } async={ async } onClick={ handleExpand } />
             </div>
           )
         })

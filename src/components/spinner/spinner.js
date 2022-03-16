@@ -1,10 +1,14 @@
+import classNames from 'classnames/bind';
 import './spinner.scss';
 
-function Spinner() {
+function Spinner({ size }) {
   return (
-    <div className="app-spinner">
-      <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    </div>
+      <div
+        className={ classNames(
+          "lds-ellipsis",
+          { "lds-ellipsis_small": size === 'small' },
+        ) }
+      ><div></div><div></div><div></div><div></div></div>
   )
 }
 

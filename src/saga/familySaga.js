@@ -1,6 +1,6 @@
 import { put, takeEvery, call, delay } from 'redux-saga/effects';
 import {
-  startLoading, startBranchLoading,
+  startLoading, startBranchLoading, toggleExpand,
   addFamilyTable, FETCH_FAMILY_TABLE,
   addFamilyTree, FETCH_FAMILY_TREE,
   addFamilyRoots, FETCH_FAMILY_ROOTS,
@@ -33,6 +33,7 @@ function* fetchFamilyChildrenWorker({ payload: { id } }) {
   yield delay(1000);
   const children = yield call(() => getChildren(id));
   yield put(addFamilyChildren(id, children));
+  yield put(toggleExpand(id, true));
 }
 
 export function* familyWatcher() {
