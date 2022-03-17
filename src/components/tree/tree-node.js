@@ -11,18 +11,16 @@ function TreeNode({ data, async, onClick, level = 1 }) {
       {
         data.map((node, i) => {
           const branchLoader = node.isLoading
-            ? <Spinner size="small" />
+            ? <Spinner size="s" />
             : null;
 
           return (
             <div
-              className={
-                classNames(
-                  'tree__node',
-                  { 'tree__node_no-children': (!async && !node?.children?.length) || (async && node?.isLoaded && !node?.children?.length) },
-                  { tree__node_expanded: node.isExpanded }
-                )
-              }
+              className={ classNames(
+                'tree__node',
+                { 'tree__node_no-children': (!async && !node?.children?.length) || (async && node?.isLoaded && !node?.children?.length) },
+                { tree__node_expanded: node.isExpanded }
+              ) }
               key={ i }
               data-level={ level }
             >
