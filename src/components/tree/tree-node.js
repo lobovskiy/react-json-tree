@@ -11,7 +11,7 @@ function TreeNode({ data, async, onClick, level = 1 }) {
       {
         data.map((node, i) => {
           const branchLoader = node.isLoading
-            ? <Spinner size="s" />
+            ? <Spinner size={ Spinner.sizes.S } />
             : null;
 
           return (

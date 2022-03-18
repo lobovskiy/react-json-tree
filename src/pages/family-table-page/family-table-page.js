@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFamily } from '../../store-toolkit/reducer';
+import { fetchFamilyTable } from '../../store-toolkit/action-creators';
 import { useTranslation } from 'react-i18next';
 import Spinner from '../../components/spinner';
 import Table from '../../components/table';
@@ -9,14 +9,14 @@ import './family-table-page.scss';
 
 function FamilyTablePage() {
   const familyData = useSelector(state => state.toolkit.family.table);
-  const isLoading = useSelector(state => state.toolkit.loading);
+  const isLoading = useSelector(state => state.toolkit.isLoading);
   const error = useSelector(state => state.toolkit.error);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchFamily());
+    dispatch(fetchFamilyTable());
   }, [dispatch]);
 
   return (

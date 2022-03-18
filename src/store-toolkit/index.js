@@ -1,9 +1,9 @@
 // import { createStore, applyMiddleware } from 'redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import toolkitReducer from './reducer';
+import toolkitSlice from './slice';
 
 const rootReducer = combineReducers({
-  toolkit: toolkitReducer
+  toolkit: toolkitSlice
 });
 
 export const store = configureStore({ reducer: rootReducer });
