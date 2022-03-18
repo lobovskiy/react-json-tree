@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
-import { fetchFamilyChildren, toggleExpand } from '../../store/reducer';
+import { toggleExpandNode } from '../../store-family/slice-tree';
+import { toggleExpandNodeAsync } from '../../store-family/slice-tree-async';
+import { fetchChildren } from '../../store-family/action-creators';
 import TreeNode from './tree-node';
 import Spinner from '../spinner';
 import './tree.scss';
@@ -16,9 +18,9 @@ function Tree({ data, async = false }) {
     const { id, isLoaded } = node;
 
     if (async && !isLoaded) {
-      dispatch(fetchFamilyChildren(id));
+      dispatch(fetchChildren(id));
     } else {
-      dispatch(toggleExpand(id, async));
+      async ? dispatch(toggleExpandNodeAsync(id)) : dispatch(toggleExpandNode(id));
     }
   }
 
@@ -39,7 +41,7 @@ function Tree({ data, async = false }) {
               <div className="tree__node-name" onClick={ () => handleExpand(node) } >
                 { node.firstName } { node.lastName } { branchLoader }
               </div>
-              <TreeNode data={ node.children } async={ async } onClick={ handleExpand } />
+              <TreeNode data={ node.children } onClick={ handleExpand } />
             </div>
           )
         })

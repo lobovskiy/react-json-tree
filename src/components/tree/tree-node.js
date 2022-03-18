@@ -27,7 +27,7 @@ function TreeNode({ data, async, onClick, level = 1 }) {
               <div className="tree__node-name" onClick={ () => onClick(node) } >
                 { node.firstName } { node.lastName } { branchLoader }
               </div>
-              <TreeNode data={ node.children } level={ level + 1 } async={ async } onClick={ onClick } />
+              <TreeNode data={ node.children } level={ level + 1 } onClick={ onClick } />
             </div>
           )
         })

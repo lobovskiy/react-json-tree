@@ -1,9 +1,13 @@
 // import { createStore, applyMiddleware } from 'redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import toolkitSlice from './slice';
+import tableSlice from './slice-table';
+import treeSlice from './slice-tree';
+import treeAsyncSlice from './slice-tree-async';
 
 const rootReducer = combineReducers({
-  toolkit: toolkitSlice
+  table: tableSlice,
+  tree: treeSlice,
+  treeAsync: treeAsyncSlice
 });
 
 export const store = configureStore({ reducer: rootReducer });
