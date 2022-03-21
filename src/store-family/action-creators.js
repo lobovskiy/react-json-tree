@@ -20,7 +20,7 @@ const fetchTree = createAsyncThunk(
 );
 
 const fetchRoots = createAsyncThunk(
-  'treeAsync/fetchTreeAsync',
+  'treeAsync/fetchTreeAsyncRoots',
   async () => {
     await new Promise(res => setTimeout(() => res(), 1000))
     const roots = await getRoots();
@@ -29,11 +29,11 @@ const fetchRoots = createAsyncThunk(
 );
 
 const fetchChildren = createAsyncThunk(
-  'treeAsync/fetchTreeAsync',
-  async () => {
+  'treeAsync/fetchTreeAsyncChildren',
+  async id => {
     await new Promise(res => setTimeout(() => res(), 1000))
-    const roots = await getChildren();
-    return roots;
+    const children = await getChildren(id);
+    return children;
   }
 );
 

@@ -41,7 +41,7 @@ function Tree({ data, async = false }) {
               <div className="tree__node-name" onClick={ () => handleExpand(node) } >
                 { node.firstName } { node.lastName } { branchLoader }
               </div>
-              <TreeNode data={ node.children } onClick={ handleExpand } />
+              <TreeNode data={ node.children } async={ async } onClick={ handleExpand } />
             </div>
           )
         })

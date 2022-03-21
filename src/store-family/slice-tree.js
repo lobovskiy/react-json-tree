@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTree, fetchRoots } from './action-creators';
+import { fetchTree } from './action-creators';
 
 const initialState = {
   members: [],
