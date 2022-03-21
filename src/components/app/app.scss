@@ -11,38 +11,18 @@ a {
   font-family: 'Nunito', sans-serif;
 }
 
-.change-language {
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  button {
-    display: inline-flex;
-    width: 25px;
-    height: 20px;
-    margin-left: 5px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 1px 1px 5px grey;
-
-    &.ru {
-      background: url(../../assets/img/icons/flag-ru.png);
-      background-size: cover;
-    }
-
-    &.en {
-      background: url(../../assets/img/icons/flag-us.png);
-      background-size: cover;
-    }
-  }
-}
-
 .container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   min-height: 100vh;
   background: #F7F7F8;
+}
+
+.app-language-switcher {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .app-menu {
