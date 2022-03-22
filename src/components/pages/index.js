@@ -1,7 +1,7 @@
 import MainPage from './main-page';
-import FamilyTablePage from './family-table-page';
+import TablePage from './table-page';
 
 export {
   MainPage,
-  FamilyTablePage
+  TablePage
 }

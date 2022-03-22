@@ -1,11 +1,11 @@
-import { FamilyTablePage } from '../components/pages';
+import { TablePage } from '../components/pages';
 
 
 const configMenu = {
   items: [
     {
       url: 'table',
-      page: <FamilyTablePage />,
+      page: <TablePage />,
       icon: 'icon-table.svg',
       text: 'navigation.table'
     }
