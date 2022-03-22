@@ -1,3 +1,3 @@
-import { genderFormatter } from './gender-formatter';
+import { setGenderFormat } from './gender-formatter';
 
-export { genderFormatter };
+export { setGenderFormat };

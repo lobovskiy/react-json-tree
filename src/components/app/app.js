@@ -14,19 +14,21 @@ function App() {
   });
 
   return (
-    <div className="app">
-      <div className="app-language-switcher">
+    <div className="family-app">
+      <div className="family-app__language-switcher">
         <LanguageSwitcher />
       </div>
-      <div className="container">
-        <div className="app-menu">
+      <div className="family-app__container">
+        <div className="family-app__menu">
           <Logo />
           <Menu />
         </div>
-        <Routes>
-          <Route path='/' element={ <MainPage /> } />
-          { appRoutes }
-        </Routes>
+        <div className="family-app__content">
+          <Routes>
+            <Route path='/' element={ <MainPage /> } />
+            { appRoutes }
+          </Routes>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import tableDTO from './table-dto';
+import getTableItem from './table-dto';
 
 export {
-  tableDTO
+  getTableItem
 }

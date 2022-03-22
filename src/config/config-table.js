@@ -1,8 +1,7 @@
-import { genderFormatter } from '../helpers';
+import { setGenderFormat } from '../helpers';
 
 const configTable = {
   columns: [
-    // 'id',
     {
       dataField: 'first_name',
       text: 'First name'
@@ -14,7 +13,7 @@ const configTable = {
     {
       dataField: 'gender',
       text: 'Gender',
-      formatter: genderFormatter
+      formatter: setGenderFormat
     }
   ]
 }

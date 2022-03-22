@@ -1,10 +1,10 @@
 import getData from './get-data';
-import { tableDTO } from '../dto';
+import { getTableItem } from '../dto';
 
 async function getTable() {
 	const data = await getData('http://localhost:3004/family');
 
-  const tableData = data.map(item => tableDTO(item));
+  const tableData = data.map(item => getTableItem(item));
 
 	return await tableData;
 }

@@ -1,40 +1,41 @@
-function genderFormatter(cell, key) {
-  let className = 'table__row-highlight';
+function setGenderFormat(cell, key) {
+  let className = 'family-app__gender-highlight';
+  let classModificator = `${className}_`;
 
   switch (cell) {
     case "Male":
-      className += ' table__row-highlight_male';
+      classModificator += 'male';
       break;
     case "Female":
-      className += ' table__row-highlight_female';
+      classModificator += 'female';
       break;
     case "Polygender":
-      className += ' table__row-highlight_polygender';
+      classModificator += 'polygender';
       break;
     case "Bigender":
-      className += ' table__row-highlight_bigender';
+      classModificator += 'bigender';
       break;
     case "Non-binary":
-      className += ' table__row-highlight_nonbinary';
+      classModificator += 'nonbinary';
       break;
     case "Genderfluid":
-      className += ' table__row-highlight_genderfluid';
+      classModificator += 'genderfluid';
       break;
     case "Agender":
-      className += ' table__row-highlight_agender';
+      classModificator += 'agender';
       break;
     case "Genderqueer":
-      className += ' table__row-highlight_genderqueer';
+      classModificator += 'genderqueer';
       break;
     default:
       break;
   }
 
   return (
-    <div className={ className } key={ key }>
+    <div className={ `${className} ${classModificator}` } key={ key }>
       { cell }
     </div>
   );
 }
 
-export { genderFormatter };
+export { setGenderFormat };
