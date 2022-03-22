@@ -6,11 +6,12 @@ import './language-switcher.scss';
 function LanguageSwitcher() {
   const handleChangeLanguage = lng => i18n.changeLanguage(lng);
 
-  const languagePanel = configLanguages.map((language, i) => {
-    const languageIcon = require(`../../assets/img/icons/flag-${language}.png`);
+  const languagePanel = configLanguages.map((lang, i) => {
+    const language = typeof lang === 'object' ? lang.locale : lang;
+    const flagIcon = require(`../../assets/img/icons/${typeof lang === 'object' ? lang.icon : `flag-${lang}.png`}`);
 
     return (
-      <button key={ i } style={{backgroundImage: `url(${languageIcon})`}} onClick={ () => handleChangeLanguage(language) }></button>
+      <button key={ i } style={{backgroundImage: `url(${flagIcon})`}} onClick={ () => handleChangeLanguage(language) }></button>
     )
   })
 
