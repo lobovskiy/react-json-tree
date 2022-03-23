@@ -1,0 +1,26 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  &__title {
+    margin: 0 0 35px;
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  &__img {
+    flex: 0 1 auto;
+    width: 70%;
+
+    img, svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
