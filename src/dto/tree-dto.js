@@ -1,4 +1,4 @@
-const treeDTO = data => ({
+const getTreeItem = data => ({
   id: data.id,
   firstName: data.first_name,
   lastName: data.last_name,
@@ -6,4 +6,4 @@ const treeDTO = data => ({
   parentId: data.parent_id
 })
 
-export default treeDTO;
+export default getTreeItem;

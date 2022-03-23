@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Tree from '../../components/tree';
 import Spinner from '../../components/spinner';
 
-function FamilyTreePage() {
+function TreePage() {
   const familyData = useSelector(state => state.family.tree);
   const isLoading = useSelector(state => state.loading);
   const dispatch = useDispatch();
@@ -28,4 +28,4 @@ function FamilyTreePage() {
   )
 }
 
-export default FamilyTreePage;
+export default TreePage;

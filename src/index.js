@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import reportWebVitals from './reportWebVitals';
 import './utils/i18n';
-import App from './components/app';
+import App from './app';
 import './index.css';
 
 ReactDOM.render(
