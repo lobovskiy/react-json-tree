@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import i18n from '../../utils/i18n';
+import LanguageSwitcher from '../language-switcher';
 import Logo from '../logo';
 import Menu from '../menu';
 import { MainPage } from '../../pages';
@@ -7,10 +7,6 @@ import { configMenu } from '../../config';
 import './app.scss';
 
 function App() {
-  const handleChangeLanguage = lng => {
-    i18n.changeLanguage(lng);
-  }
-
   const appRoutes = configMenu.items.map((item, i) => {
     return (
       <Route key={ i } path={ `/${item.url}` } element={ item.page } />
@@ -18,20 +14,21 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <div className="change-language">
-        <button className="ru" onClick={ () => handleChangeLanguage('ru') }></button>
-        <button className="en" onClick={ () => handleChangeLanguage('en') }></button>
+    <div className="family-app">
+      <div className="family-app__language-switcher">
+        <LanguageSwitcher />
       </div>
-      <div className="container">
-        <div className="app-menu">
+      <div className="family-app__container">
+        <div className="family-app__menu">
           <Logo />
           <Menu />
         </div>
-        <Routes>
-          <Route path='/' element={ <MainPage /> } />
-          { appRoutes }
-        </Routes>
+        <div className="family-app__content">
+          <Routes>
+            <Route path='/' element={ <MainPage /> } />
+            { appRoutes }
+          </Routes>
+        </div>
       </div>
     </div>
   );

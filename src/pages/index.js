@@ -1,9 +1,9 @@
 import MainPage from './main-page';
-import FamilyTablePage from './family-table-page';
-import FamilyTreePage from './family-tree-page';
+import TablePage from './table-page';
+import TreePage from './tree-page';
 
 export {
   MainPage,
-  FamilyTablePage,
-  FamilyTreePage
+  TablePage,
+  TreePage
 }

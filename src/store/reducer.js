@@ -20,8 +20,8 @@ export const reducer = (state = defaultState, action) => {
       return { ...state, family: { tree: [...action.payload] }, loading: false }
     case START_LOADING:
       return { ...state, loading: true }
-		default:
-			return state;
+    default:
+      return state;
 	}
 }
 

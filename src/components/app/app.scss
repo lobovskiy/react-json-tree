@@ -6,68 +6,76 @@ a {
   text-decoration: inherit;
 }
 
-.App {
+.family-app {
   background-color: #fff;
   font-family: 'Nunito', sans-serif;
-}
 
-.change-language {
-  position: absolute;
-  top: 0;
-  right: 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: #F7F7F8;
+  }
 
-  button {
-    display: inline-flex;
-    width: 25px;
-    height: 20px;
-    margin-left: 5px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 1px 1px 5px grey;
+  &__language-switcher {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
-    &.ru {
-      background: url(../../assets/img/icons/flag-ru.png);
-      background-size: cover;
+  &__menu {
+    position: fixed;
+    width: 218px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: #FFF;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    padding: 30px 30px 0;
+  }
+
+  &__gender-highlight {
+    padding: 5px 18px;
+    border-radius: 33px;
+
+    &_male {
+      background: rgba(91, 147, 255, 0.1);
+      color: rgba(91, 147, 255, 1);
     }
-
-    &.en {
-      background: url(../../assets/img/icons/flag-us.png);
-      background-size: cover;
+    &_female {
+      background: rgba(255, 143, 107, 0.1);
+      color: rgba(255, 143, 107, 1);
+    }
+    &_polygender {
+      background: rgba(123, 200, 10, 0.1);
+      color: rgba(123, 200, 10, 1);
+    }
+    &_bigender {
+      background: rgba(178, 97, 132, 0.1);
+      color: rgba(178, 97, 132, 1);
+    }
+    &_nonbinary {
+      background: rgba(123, 20, 78, 0.1);
+      color: rgba(123, 20, 78, 1);
+    }
+    &_genderfluid {
+      background: rgba(74, 120, 103, 0.1);
+      color: rgba(74, 120, 103, 1);
+    }
+    &_agender {
+      background: rgba(189, 113, 105, 0.1);
+      color: rgba(189, 113, 105, 1);
+    }
+    &_genderqueer {
+      background: rgba(115, 93, 145, 0.1);
+      color: rgba(115, 93, 145, 1);
     }
   }
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 100vh;
-  background: #F7F7F8;
-}
-
-.app-menu {
-  position: fixed;
-  width: 218px;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  background: #FFF;
-}
-
-.app-content {
-  flex: 1 1 auto;
-  padding: 30px 30px 0;
-
-  &__title {
-    margin: 0 0 38px;
-    font-size: 24px;
-    font-weight: 700;
-  }
-}
-
-.app-spinner {
-  width: 100%;
-  text-align: center;
-}
