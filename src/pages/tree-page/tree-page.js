@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFamilyTree } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
-import Tree from '../../components/tree';
-import Spinner from '../../components/spinner';
+import { Tree, Spinner } from '../../components';
 
 function TreePage() {
   const familyData = useSelector(state => state.family.tree);

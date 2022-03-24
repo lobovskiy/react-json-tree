@@ -1,7 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import LanguageSwitcher from '../components/language-switcher';
-import Logo from '../components/logo';
-import Menu from '../components/menu';
+import { LanguageSwitcher, Logo, Menu } from '../components';
 import { MainPage } from '../pages';
 import { configMenu } from '../config';
 import './app.scss';
