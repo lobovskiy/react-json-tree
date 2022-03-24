@@ -1,5 +1,4 @@
-import getTableItem from './table-dto';
-import getTreeItem from './tree-dto';
+import { getTableItem, getTreeItem } from './dto';
 
 export {
   getTableItem,
