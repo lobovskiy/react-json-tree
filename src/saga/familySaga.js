@@ -20,4 +20,3 @@ export function* familyWatcher() {
   yield takeEvery(FETCH_FAMILY_TABLE, fetchFamilyTableWorker);
   yield takeEvery(FETCH_FAMILY_TREE, fetchFamilyTreeWorker);
 }
-
