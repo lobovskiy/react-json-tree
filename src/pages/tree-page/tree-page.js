@@ -6,7 +6,7 @@ import { Tree, Spinner } from '../../components';
 
 function TreePage() {
   const familyData = useSelector(state => state.family.tree);
-  const isLoading = useSelector(state => state.loading);
+  const isLoading = useSelector(state => state.family.treeLoading);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();

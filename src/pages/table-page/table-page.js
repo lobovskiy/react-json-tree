@@ -8,7 +8,7 @@ import './table-page.scss';
 
 function TablePage() {
   const familyData = useSelector(state => state.family.table);
-  const isLoading = useSelector(state => state.loading);
+  const isLoading = useSelector(state => state.family.tableLoading);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
