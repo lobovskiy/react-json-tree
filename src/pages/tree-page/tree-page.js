@@ -17,12 +17,12 @@ function TreePage() {
   }, [dispatch]);
 
   const tree = isLoading ?
-    <Spinner /> :
+  <div className="family-table__spinner"><Spinner /></div> :
     <Tree data={ familyData } />;
 
   return (
-    <div className="app-content tree">
-      <h1 className="app-content__title">{ t('sections.family-tree.header') }</h1>
+    <div className="family-tree">
+      <h1 className="family-tree__title">{ t('sections.family-tree.header') }</h1>
       { tree }
     </div>
   )

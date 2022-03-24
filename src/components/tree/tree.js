@@ -9,7 +9,7 @@ function Tree({ data }) {
   }
 
   return (
-    <div className="app-tree">
+    <div className="tree">
       {
         data.map((item, i) => {
           return (

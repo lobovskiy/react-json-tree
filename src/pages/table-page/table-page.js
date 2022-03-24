@@ -23,8 +23,8 @@ function TablePage() {
     <Table data={ familyData } columns={ configTable.columns } />
 
   return (
-    <div className="app-content">
-      <h1 className="app-content__title">{ t('sections.family-table.header') }</h1>
+    <div className="family-table">
+      <h1 className="family-table__title">{ t('sections.family-table.header') }</h1>
       { content }
     </div>
   )
