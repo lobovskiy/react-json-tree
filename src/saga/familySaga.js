@@ -1,15 +1,22 @@
-import { put, takeEvery, call } from 'redux-saga/effects';
-import { addFamily, startLoading, FETCH_FAMILY } from '../store/reducer';
-import { getTable } from '../api';
+import { put, takeEvery, call, delay } from 'redux-saga/effects';
+import { startTableLoading, startTreeLoading, addFamilyTable, FETCH_FAMILY_TABLE, addFamilyTree, FETCH_FAMILY_TREE } from '../store/reducer';
+import { getTable, getTree } from '../api';
 
-function* fetchFamilyWorker() {
-  yield put(startLoading());
-  yield call(() => new Promise(res => setTimeout(res, 2000)));
+function* fetchFamilyTableWorker() {
+  yield put(startTableLoading());
+  yield delay(1000);
   const data = yield call(() => getTable());
-  yield put(addFamily(data));
+  yield put(addFamilyTable(data));
+}
+
+function* fetchFamilyTreeWorker() {
+  yield put(startTreeLoading());
+  yield delay(1000);
+  const data = yield call(() => getTree());
+  yield put(addFamilyTree(data));
 }
 
 export function* familyWatcher() {
-  yield takeEvery(FETCH_FAMILY, fetchFamilyWorker);
+  yield takeEvery(FETCH_FAMILY_TABLE, fetchFamilyTableWorker);
+  yield takeEvery(FETCH_FAMILY_TREE, fetchFamilyTreeWorker);
 }
-

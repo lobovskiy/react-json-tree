@@ -1,0 +1,98 @@
+.tree {
+  .tree__node {
+
+    &_expanded {
+
+      & > .tree__node-name {
+        &::before {
+          -moz-transform: rotate(90deg); /* Для Firefox */
+          -ms-transform: rotate(90deg); /* Для IE */
+          -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+          -o-transform: rotate(90deg); /* Для Opera */
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &_no-children {
+
+      & > .tree__node-name {
+        cursor: auto !important;
+        &::before {
+          background: none !important;
+        }
+      }
+    }
+
+    .tree__node-name {
+      margin: 0 0 10px;
+      padding: 15px 15px 15px 30px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      text-align-last: left;
+      background: #FFF;
+      cursor: pointer;
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        margin-left: calc(-15px - .5em);
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        background: url(../../assets/img/icons/arrow-right.svg) center no-repeat;
+        -webkit-transition: .3s;
+        transition: .3s;
+      }
+    }
+
+    .tree__node {
+      margin-left: 30px;
+      position: relative;
+
+      animation-name: drop-down;
+      animation-duration: .5s;
+
+      &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        margin-left: -15px;
+        background-color: rgb(232 231 249);
+        width: 10px;
+        height: 2px;
+        top: calc(0.5em + 15px);
+      }
+
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        margin-left: -15px;
+        background-color: rgb(232 231 249);
+        width: 2px;
+        height: calc(100% + 10px);
+        top: 0;
+      }
+
+      &:last-child::after {
+        width: 2px;
+        height: calc(0.5em + 15px);
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes drop-down {
+  0%{
+    margin-top: calc(-15px - 1em - 15px);
+  }
+  100%{
+    margin-top: 0;
+  }
+}

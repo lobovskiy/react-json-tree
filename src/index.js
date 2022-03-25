@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import reportWebVitals from './reportWebVitals';
 import './utils/i18n';
-import App from './components/app';
+import App from './app';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <App />
       </Router>
     </Provider>

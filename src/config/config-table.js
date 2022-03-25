@@ -3,11 +3,11 @@ import { setGenderFormat } from '../helpers';
 const configTable = {
   columns: [
     {
-      dataField: 'first_name',
+      dataField: 'firstName',
       text: 'First name'
     },
     {
-      dataField: 'last_name',
+      dataField: 'lastName',
       text: 'Last name'
     },
     {

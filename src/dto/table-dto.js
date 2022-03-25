@@ -1,8 +1,6 @@
-const getTableItem = data => ({
+export const getTableItem = data => ({
   id: data.id,
-  first_name: data.first_name,
-  last_name: data.last_name,
+  firstName: data.first_name,
+  lastName: data.last_name,
   gender: data.gender
 })
-
-export default getTableItem;

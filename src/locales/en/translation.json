@@ -1,6 +1,13 @@
 {
-  "Welcome": "Welcome to the Family!",
-  "Table header": "Family members",
+  "welcome": "Welcome to the Family!",
+  "sections": {
+    "family-table": {
+      "header": "Family members table"
+    },
+    "family-tree": {
+      "header": "Family members tree"
+    }
+  },
   "navigation": {
     "table": "Table",
     "tree": "Tree"

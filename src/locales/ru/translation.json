@@ -1,6 +1,13 @@
 {
-  "Welcome": "Добро пожаловать в Семью!",
-  "Table header": "Члены семьи",
+  "welcome": "Добро пожаловать в Семью!",
+  "sections": {
+    "family-table": {
+      "header": "Таблица членов семьи"
+    },
+    "family-tree": {
+      "header": "Дерево членов семьи"
+    }
+  },
   "navigation": {
     "table": "Таблица",
     "tree": "Дерево"

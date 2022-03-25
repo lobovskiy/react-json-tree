@@ -7,7 +7,7 @@ function MainPage() {
 
   return (
     <div className="main-page">
-      <div className="main-page__title">{ t('Welcome') }</div>
+      <div className="main-page__title">{ t('welcome') }</div>
       <div className="main-page__img">
         <WelcomeImage />
       </div>

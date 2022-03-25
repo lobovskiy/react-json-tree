@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import LanguageSwitcher from '../language-switcher';
-import Logo from '../logo';
-import Menu from '../menu';
+import { LanguageSwitcher, Logo, Menu } from '../components';
 import { MainPage } from '../pages';
-import { configMenu } from '../../config';
+import { configMenu } from '../config';
 import './app.scss';
 
 function App() {
