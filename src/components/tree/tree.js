@@ -1,43 +1,45 @@
+import { useDispatch } from 'react-redux';
+import classNames from 'classnames/bind';
+import { fetchFamilyChildren, toggleExpand } from '../../store/reducer';
 import TreeNode from './tree-node';
+import Spinner from '../spinner';
 import './tree.scss';
 
-function Tree({ data }) {
+function Tree({ data, async = false }) {
+  const dispatch = useDispatch();
 
   if (!data?.length) {
     return null;
   }
 
-  function expandChildNodes(event) {
-    const target = event.target;
-    const childrenDiv =
-      target
-      && target.classList?.contains('tree__node-name')
-      && target.nextElementSibling?.classList?.contains('tree__node-children')
-        ? target.nextElementSibling
-        : null;
+  function handleExpand(node) {
+    const { id, isLoaded } = node;
 
-    if (childrenDiv) {
-        target.parentNode?.classList?.toggle('tree__node_expanded');
-        childrenDiv.childNodes?.forEach(child => {
-          if (child.classList?.contains('hidden')) {
-            child.classList.remove('hidden');
-          } else {
-            child.classList?.add('hidden');
-          }
-        });
+    if (async && !isLoaded) {
+      dispatch(fetchFamilyChildren(id));
+    } else {
+      dispatch(toggleExpand(id, async));
     }
   }
 
   return (
     <div className="tree">
       {
-        data.map((item, i) => {
+        data.map((node, i) => {
+
+          const branchLoader = node.isLoading
+            ? <Spinner size="small" />
+            : null;
+
           return (
-            <div className="tree__node" key={ i } onClick={ expandChildNodes }>
-              <div className="tree__node-name">
-                { item.firstName } { item.lastName }
+            <div
+              className={ classNames('tree__node', { tree__node_expanded: node.isExpanded }) }
+              key={ i }
+            >
+              <div className="tree__node-name" onClick={ () => handleExpand(node) } >
+                { node.firstName } { node.lastName } { branchLoader }
               </div>
-                <TreeNode data={ item.children } />
+              <TreeNode data={ node.children } async={ async } onClick={ handleExpand } />
             </div>
           )
         })

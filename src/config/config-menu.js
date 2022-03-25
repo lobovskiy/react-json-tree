@@ -1,4 +1,4 @@
-import { TablePage, TreePage } from '../pages';
+import { TablePage, TreePage, TreeAsyncPage } from '../pages';
 
 const configMenu = {
   items: [
@@ -13,6 +13,12 @@ const configMenu = {
       page: <TreePage />,
       icon: 'icon-tree.svg',
       text: 'navigation.tree'
+    },
+    {
+      url: 'async-tree',
+      page: <TreeAsyncPage />,
+      icon: 'icon-tree.svg',
+      text: 'navigation.async-tree'
     }
   ]
 }

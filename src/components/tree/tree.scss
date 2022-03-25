@@ -1,34 +1,21 @@
 .tree {
-  .tree__node {
+  &__node {
+    $tree-node: &;
+    $tree-node-name: #{$tree-node}-name;
+    $tree-node-children: #{$tree-node}-children;
 
-    &_expanded {
+    $padding: 15px;
+    $margin-bottom: 10px;
+    $font-size: 14px;
+    $tail-width: 2px;
 
-      & > .tree__node-name {
-        &::before {
-          -moz-transform: rotate(90deg); /* Для Firefox */
-          -ms-transform: rotate(90deg); /* Для IE */
-          -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
-          -o-transform: rotate(90deg); /* Для Opera */
-          transform: rotate(90deg);
-        }
-      }
-    }
-
-    &_no-children {
-
-      & > .tree__node-name {
-        cursor: auto !important;
-        &::before {
-          background: none !important;
-        }
-      }
-    }
-
-    .tree__node-name {
-      margin: 0 0 10px;
-      padding: 15px 15px 15px 30px;
+    &-name {
+      $tree-node-name: &;
+      margin: 0 0 $margin-bottom;
+      padding: $padding;
+      padding-left: $padding * 2;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: $font-size;
       font-weight: 400;
       text-align-last: left;
       background: #FFF;
@@ -37,18 +24,18 @@
       &::before {
         content: ' ';
         position: absolute;
-        margin-left: calc(-15px - .5em);
-        width: 1em;
-        height: 1em;
-        line-height: 1em;
+        margin-left: calc(-#{$padding} - #{$font-size} / 2);
+        width: $font-size;
+        height: $font-size;
+        line-height: $font-size;
         background: url(../../assets/img/icons/arrow-right.svg) center no-repeat;
         -webkit-transition: .3s;
         transition: .3s;
       }
     }
 
-    .tree__node {
-      margin-left: 30px;
+    #{$tree-node} {
+      margin-left: $padding * 2;
       position: relative;
 
       animation-name: drop-down;
@@ -58,41 +45,77 @@
         content: ' ';
         display: block;
         position: absolute;
-        margin-left: -15px;
+        margin-left: -($padding + $tail-width * 0.5);
         background-color: rgb(232 231 249);
-        width: 10px;
-        height: 2px;
-        top: calc(0.5em + 15px);
+        width: $padding + $tail-width * 0.5 - 5;
+        height: $tail-width;
+        top: calc(#{$padding} + #{$font-size} / 2);
       }
 
       &::after {
         content: ' ';
         display: block;
         position: absolute;
-        margin-left: -15px;
+        margin-left: -($padding + $tail-width * 0.5);
         background-color: rgb(232 231 249);
-        width: 2px;
-        height: calc(100% + 10px);
+        width: $tail-width;
+        height: calc(100% + $margin-bottom);
         top: 0;
       }
 
       &:last-child::after {
-        width: 2px;
-        height: calc(0.5em + 15px);
+        width: $tail-width;
+        height: calc(#{$padding} + #{$font-size} / 2);
+      }
+
+      display: none;
+    }
+
+    &_expanded {
+      & > #{$tree-node-name} {
+        &::before {
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -webkit-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+
+      & > #{$tree-node-children} > #{$tree-node} {
+        display: block;
       }
     }
-  }
-}
 
-.hidden {
-  display: none;
-}
+    &_no-children {
+      & > #{$tree-node-name} {
+        cursor: auto !important;
+        &::before {
+          background: none !important;
+        }
+      }
+    }
 
-@keyframes drop-down {
-  0%{
-    margin-top: calc(-15px - 1em - 15px);
-  }
-  100%{
-    margin-top: 0;
+    .app-spinner {
+      display: inline;
+
+      .lds-ellipsis {
+        position: absolute;
+        height: $font-size;
+
+        div {
+          top: 0;
+        }
+      }
+    }
+
+    @keyframes drop-down {
+      0%{
+        margin-top: calc(-#{$padding} * 2 - #{$font-size});
+      }
+      100%{
+        margin-top: 0;
+      }
+    }
   }
 }

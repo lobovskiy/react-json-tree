@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchFamilyTree } from '../../store/reducer';
 import { useTranslation } from 'react-i18next';
 import { Tree, Spinner } from '../../components';
+import './tree-page.scss';
 
 function TreePage() {
   const familyData = useSelector(state => state.family.tree);
@@ -16,7 +17,7 @@ function TreePage() {
   }, [dispatch]);
 
   const tree = isLoading ?
-  <div className="family-table__spinner"><Spinner /></div> :
+  <div className="family-tree__spinner"><Spinner /></div> :
     <Tree data={ familyData } />;
 
   return (
