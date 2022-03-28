@@ -64,14 +64,18 @@ function createTreeArray(data, rootItems) {
 }
 
 function getChildren(treeData, id) {
+  if (!Array.isArray(treeData)) {
+    return [];
+  }
+
   const childrenArr = [];
   let isAdded = false;
 
-  function addChildren(branch) {
+  function addChildren(branchNodes) {
 
-    for (let i = 0; i < branch.length; i++) {
-      if (branch[i].id === id) {
-        branch[i].children.forEach(child => {
+    for (let i = 0; i < branchNodes.length; i++) {
+      if (branchNodes[i]?.id === id) {
+        branchNodes[i]?.children?.forEach(child => {
           delete child.children;
           childrenArr.push(child);
         });
@@ -79,11 +83,13 @@ function getChildren(treeData, id) {
         break;
       }
 
-      if (branch[i]?.children?.length) {
-        addChildren(branch[i].children);
+      if (branchNodes[i]?.children?.length) {
+        addChildren(branchNodes[i].children);
       }
 
-      if (isAdded) break;
+      if (isAdded) {
+        break;
+      }
     }
   }
 
