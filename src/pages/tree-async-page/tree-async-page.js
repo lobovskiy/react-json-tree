@@ -17,14 +17,13 @@ function TreeAsyncPage() {
     dispatch(fetchFamilyRoots());
   }, [dispatch]);
 
-  const tree = isLoading
-    ? <div className="family-tree-async__spinner"><Spinner /></div>
-    : <Tree data={ familyData } async={ true } />;
+  const spinner = <div className="family-tree-async__spinner"><Spinner /></div>;
 
   return (
     <div className="family-tree-async">
       <h1 className="family-tree-async__title">{ t('sections.family-async-tree.header') }</h1>
-      { tree }
+      { isLoading && spinner }
+      <Tree data={ familyData } async={ true } />
     </div>
   )
 }

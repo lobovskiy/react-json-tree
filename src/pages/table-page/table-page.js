@@ -17,14 +17,13 @@ function TablePage() {
     dispatch(fetchFamilyTable());
   }, [dispatch]);
 
-  const content = isLoading ?
-    <div className="family-table__spinner"><Spinner /></div> :
-    <Table data={ familyData } columns={ configTable.columns } />
+  const spinner = <div className="family-table__spinner"><Spinner /></div>;
 
   return (
     <div className="family-table">
       <h1 className="family-table__title">{ t('sections.family-table.header') }</h1>
-      { content }
+      { isLoading && spinner }
+      <Table data={ familyData } columns={ configTable.columns } />
     </div>
   )
 }

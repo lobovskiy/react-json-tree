@@ -17,9 +17,9 @@ function TreeNode({ data, async, onClick, level = 1 }) {
           return (
             <div
               className={ classNames(
-                'tree__node',
-                { 'tree__node_no-children': (!async && !node?.children?.length) || (async && node?.isLoaded && !node?.children?.length) },
-                { tree__node_expanded: node.isExpanded }
+                "tree__node",
+                { "tree__node_no-children": (!async && !node?.children?.length) || (async && node?.isLoaded && !node?.children?.length) },
+                { "tree__node_expanded": node.isExpanded }
               ) }
               key={ i }
               data-level={ level }

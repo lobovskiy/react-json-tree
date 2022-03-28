@@ -28,13 +28,13 @@ export const FETCH_FAMILY_CHILDREN = 'FETCH_FAMILY_CHILDREN';
 export const reducer = (state = defaultState, action) => {
 	switch (action.type) {
     case ADD_FAMILY_TABLE:
-      return { ...state, family: { table: [...action.payload], tableLoading: false } };
+      return { ...state, family: { ...state.family, table: [...action.payload], tableLoading: false } };
 
     case ADD_FAMILY_TREE:
-      return { ...state, family: { tree: [...action.payload], treeLoading: false } };
+      return { ...state, family: { ...state.family, tree: [...action.payload], treeLoading: false } };
 
     case ADD_FAMILY_ROOTS: {
-      return { ...state, family: { treeAsync: [...action.payload], treeAsyncLoading: false } };
+      return { ...state, family: { ...state.family, treeAsync: [...action.payload], treeAsyncLoading: false } };
     }
 
     case ADD_FAMILY_CHILDREN: {
@@ -67,17 +67,17 @@ export const reducer = (state = defaultState, action) => {
       }
 
       addChildrenById(newTreeAsync, id);
-      return { ...state, family: { treeAsync: newTreeAsync } };
+      return { ...state, family: { ...state.family, treeAsync: newTreeAsync } };
     }
 
     case START_TABLE_LOADING:
-      return { ...state, family: { tableLoading: true } }
+      return { ...state, family: { ...state.family, tableLoading: true } }
 
     case START_TREE_LOADING:
-      return { ...state, family: { treeLoading: true } }
+      return { ...state, family: { ...state.family, treeLoading: true } }
 
     case START_TREE_ASYNC_LOADING:
-      return { ...state, family: { treeAsyncLoading: true } }
+      return { ...state, family: { ...state.family, treeAsyncLoading: true } }
 
     case START_BRANCH_LOADING: {
       const { id } = action.payload;
@@ -107,7 +107,7 @@ export const reducer = (state = defaultState, action) => {
       }
 
       setLoaderById(newTreeAsync, id);
-      return { ...state, family: { treeAsync: newTreeAsync } };
+      return { ...state, family: { ...state.family, treeAsync: newTreeAsync } };
     }
 
     case TOGGLE_EXPAND: {
@@ -141,8 +141,8 @@ export const reducer = (state = defaultState, action) => {
 
       toggleExpandById(newTree, id);
       return async
-        ? { ...state, family: { treeAsync: newTree } }
-        : { ...state, family: { tree: newTree } };
+        ? { ...state, family: { ...state.family, treeAsync: newTree } }
+        : { ...state, family: { ...state.family, tree: newTree } };
     }
 
 		default:
