@@ -1,7 +1,5 @@
-import getDataFromServer from './get-data-from-server';
+import { getDataFromFile } from './get-data-from-server';
 
-async function getRoots() {
-  return await getDataFromServer('MOCK_DATA.json', 'roots');
+export async function getRoots() {
+  return await getDataFromFile('MOCK_DATA.json', 'roots');
 }
-
-export default getRoots;

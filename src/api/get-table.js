@@ -1,7 +1,5 @@
-import getDataFromServer from './get-data-from-server';
+import { getDataFromFile } from './get-data-from-server';
 
-async function getTable() {
-  return await getDataFromServer('MOCK_DATA.json', 'table');
+export async function getTable() {
+  return await getDataFromFile('MOCK_DATA.json', 'table');
 }
-
-export default getTable;
