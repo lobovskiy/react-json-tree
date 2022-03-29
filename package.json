@@ -41,7 +41,15 @@
       "react-app/jest"
     ],
     "rules": {
-      "curly": "error"
+      "curly": "error",
+      "no-magic-numbers": "error",
+      "camelcase": "error",
+      "sort-imports": ["error", {
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true
+      }],
+      "no-var": "error",
+      "newline-before-return": "error"
     }
   },
   "browserslist": {

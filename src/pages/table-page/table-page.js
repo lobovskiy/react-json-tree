@@ -23,7 +23,7 @@ function TablePage() {
       <h1 className="family-table__title">{ t('sections.family-table.header') }</h1>
       { error && <h1>{ error }</h1> }
       { isLoading && spinner }
-      <Table data={ members } columns={ configTable.columns } />
+      <Table rows={ members } columns={ configTable.columns } />
     </div>
   )
 }

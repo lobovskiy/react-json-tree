@@ -15,6 +15,7 @@ function getRootParents(data) {
 
       if (currentChainIndexes.includes(currentItem.parentId)) {    // loop check
         rootParents.push(currentItem);    // if there's a loop, consider current element as a root element
+
         return;
       }
 
@@ -29,6 +30,7 @@ function getRootParents(data) {
 
           // recursively get parents for the current parent element
           findParents(arr, j);
+
           return;
         }
       }
@@ -61,6 +63,7 @@ function createTreeArray(data, rootItems) {
   }
 
   rootItems.forEach(item => findChildren(item));
+
   return rootItems;
 }
 
@@ -95,6 +98,7 @@ function getChildren(treeData, id) {
   }
 
   addChildren(treeData);
+
   return childrenArr;
 }
 

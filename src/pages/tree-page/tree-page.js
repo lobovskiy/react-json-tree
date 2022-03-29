@@ -21,7 +21,7 @@ function TreePage() {
     <div className="family-tree">
       <h1 className="family-tree__title">{ t('sections.family-tree.header') }</h1>
       { isLoading && spinner }
-      <Tree data={ members } />
+      <Tree nodes={ members } />
     </div>
   )
 }

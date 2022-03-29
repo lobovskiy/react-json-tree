@@ -21,7 +21,7 @@ function TreeAsyncPage() {
     <div className="family-tree-async">
       <h1 className="family-tree-async__title">{ t('sections.family-async-tree.header') }</h1>
       { isLoading && spinner }
-      <Tree data={ members } async={ true } />
+      <Tree nodes={ members } async={ true } />
     </div>
   )
 }
