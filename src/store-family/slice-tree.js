@@ -30,7 +30,9 @@ const treeSlice = createSlice({
               toggleExpand(branch[i].children);
             }
 
-            if (isToggled) break;
+            if (isToggled) {
+              break;
+            }
           }
         }
 

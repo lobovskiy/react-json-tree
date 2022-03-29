@@ -30,7 +30,9 @@ const treeAsyncSlice = createSlice({
               toggleExpand(branch[i].children);
             }
 
-            if (isToggled) break;
+            if (isToggled) {
+              break;
+            }
           }
         }
 
@@ -75,7 +77,9 @@ const treeAsyncSlice = createSlice({
               setChildren(branch[i].children);
             }
 
-            if (isSet) break;
+            if (isSet) {
+              break;
+            }
           }
         }
 
@@ -104,7 +108,9 @@ const treeAsyncSlice = createSlice({
               setLoader(branch[i].children);
             }
 
-            if (isSet) break;
+            if (isSet) {
+              break;
+            }
           }
         }
 
