@@ -19,8 +19,10 @@ function Tree({ data, async = false }) {
 
     if (async && !isLoaded) {
       dispatch(fetchChildren(id));
+    } else if (async) {
+      dispatch(toggleExpandNodeAsync(id));
     } else {
-      async ? dispatch(toggleExpandNodeAsync(id)) : dispatch(toggleExpandNode(id));
+      dispatch(toggleExpandNode(id));
     }
   }
 
