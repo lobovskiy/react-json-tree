@@ -7,19 +7,20 @@ function getRootParents(data) {
   // with checking of already indexed items and preventing chain loop
   function findParents(arr, i) {
     if (!indexedItems.includes(arr[i]?.id)) {
+      const currentItem = arr[i];
 
       // saving item index in common index array and for the current recursive chain
-      indexedItems.push(arr[i].id);
-      currentChainIndexes.push(arr[i].id);
+      indexedItems.push(currentItem.id);
+      currentChainIndexes.push(currentItem.id);
 
-      if (currentChainIndexes.includes(arr[i].parentId)) {    // loop check
-        rootParents.push(arr[i]);    // if there's a loop, consider current element as a root element
+      if (currentChainIndexes.includes(currentItem.parentId)) {    // loop check
+        rootParents.push(currentItem);    // if there's a loop, consider current element as a root element
         return;
       }
 
       // searching for parents of current element in the array
       for (let j = 0; j < arr.length; j++) {
-        if (arr[i].parentId === arr[j].id) {
+        if (currentItem.parentId === arr[j].id) {
 
           // if element's parent is already indexed, this chain doesn't have its own root parent
           if (indexedItems.includes(arr[j].id)) {
@@ -32,7 +33,7 @@ function getRootParents(data) {
         }
       }
 
-      rootParents.push(arr[i]);    // make current element root if it hasn't got any parents in the array
+      rootParents.push(currentItem);    // make current element root if it hasn't got any parents in the array
     }
   }
 

@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRoots } from '../../store-family/action-creators';
 import { useTranslation } from 'react-i18next';
-import Tree from '../../components/tree';
-import Spinner from '../../components/spinner';
+import { Tree, Spinner } from '../../components';
 import './tree-async-page.scss';
 
 function TreeAsyncPage() {

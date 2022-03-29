@@ -21,7 +21,7 @@ const treeSlice = createSlice({
 
           for (let i = 0; i < branch.length; i++) {
             if (branch[i].id === id) {
-              branch[i].isExpanded = !branch[i].isExpanded; // isExpanded изначально undefined, надо подумать
+              branch[i].isExpanded = !branch[i].isExpanded;
               isToggled = true;
               break;
             }
