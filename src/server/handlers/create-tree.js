@@ -45,7 +45,6 @@ function getRootParents(data) {
   return rootParents;
 }
 
-
 function createTreeArray(data, rootItems) {
   let indexedItems = [];
   rootItems.forEach(item => indexedItems.push(item.id));
@@ -64,4 +63,38 @@ function createTreeArray(data, rootItems) {
   return rootItems;
 }
 
-export { getRootParents, createTreeArray };
+function getChildren(treeData, id) {
+  if (!Array.isArray(treeData)) {
+    return [];
+  }
+
+  const childrenArr = [];
+  let isAdded = false;
+
+  function addChildren(branchNodes) {
+
+    for (let i = 0; i < branchNodes.length; i++) {
+      if (branchNodes[i]?.id === id) {
+        branchNodes[i]?.children?.forEach(child => {
+          delete child.children;
+          childrenArr.push(child);
+        });
+        isAdded = true;
+        break;
+      }
+
+      if (branchNodes[i]?.children?.length) {
+        addChildren(branchNodes[i].children);
+      }
+
+      if (isAdded) {
+        break;
+      }
+    }
+  }
+
+  addChildren(treeData);
+  return childrenArr;
+}
+
+export { getRootParents, createTreeArray, getChildren };
