@@ -10,9 +10,7 @@ function TreeNode({ data, async, onClick, level = 1 }) {
     <div className="tree__node-children">
       {
         data.map((node, i) => {
-          const branchLoader = node.isLoading
-            ? <Spinner size="small" />
-            : null;
+          const branchSpinner = <Spinner size="small" />;
 
           return (
             <div
@@ -25,7 +23,7 @@ function TreeNode({ data, async, onClick, level = 1 }) {
               data-level={ level }
             >
               <div className="tree__node-name" onClick={ () => onClick(node) } >
-                { node.firstName } { node.lastName } { branchLoader }
+                { node.firstName } { node.lastName } { node.isLoading && branchSpinner }
               </div>
               <TreeNode data={ node.children } level={ level + 1 } async={ async } onClick={ onClick } />
             </div>

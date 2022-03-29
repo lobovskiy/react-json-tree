@@ -3,7 +3,7 @@ import { getTreeItem } from './dto';
 async function getTree(filename) {
 	const data = await fetch(`./mocks/${filename}`).then(res => res.json());
 
-  const treeData = data.family.map(item => getTreeItem(item));
+  const treeData = data.family.map(getTreeItem);
 
 	return treeData;
 }

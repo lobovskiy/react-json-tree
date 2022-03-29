@@ -112,9 +112,7 @@ export const reducer = (state = defaultState, action) => {
 
     case TOGGLE_EXPAND: {
       const { id, async = false } = action.payload;
-      let newTree = async
-        ? JSON.parse(JSON.stringify(state.family.treeAsync))
-        : JSON.parse(JSON.stringify(state.family.tree));
+      let newTree = JSON.parse(JSON.stringify(async ? state.family.treeAsync : state.family.tree));
 
       function toggleExpandById(tree, id) {
         let isToggled = false;
@@ -123,7 +121,7 @@ export const reducer = (state = defaultState, action) => {
 
           for (let i = 0; i < branch.length; i++) {
             if (branch[i].id === id) {
-              branch[i].isExpanded = !branch[i].isExpanded; // isExpanded изначально undefined, надо подумать
+              branch[i].isExpanded = !branch[i].isExpanded;
               isToggled = true;
               break;
             }
