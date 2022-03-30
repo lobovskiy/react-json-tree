@@ -42,7 +42,9 @@
     ],
     "rules": {
       "curly": "error",
-      "no-magic-numbers": "error",
+      "no-magic-numbers": ["error", {
+        "ignoreDefaultValues": true
+      }],
       "camelcase": "error",
       "sort-imports": ["error", {
         "ignoreDeclarationSort": true,

@@ -1,4 +1,4 @@
-import i18n from '../../utils/i18n';
+import i18n from '../../locales/i18n';
 import { configLanguages } from '../../config';
 import './language-switcher.scss';
 
