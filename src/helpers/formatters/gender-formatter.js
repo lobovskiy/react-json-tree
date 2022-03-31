@@ -1,6 +1,6 @@
-function setGenderFormat(cell, key) {
+function setGenderFormat(cell = '', key) {
   let className = 'family-app__gender-highlight';
-  let classModificator = `${className}_`;
+  let classModificator = key ? ` ${className}_` : '';
 
   switch (cell) {
     case "Male":
@@ -32,7 +32,7 @@ function setGenderFormat(cell, key) {
   }
 
   return (
-    <div className={ `${className} ${classModificator}` } key={ key }>
+    <div className={ `${className}${classModificator}` } key={ key }>
       { cell }
     </div>
   );
