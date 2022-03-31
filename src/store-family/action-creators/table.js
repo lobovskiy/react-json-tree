@@ -5,8 +5,8 @@ import { delay } from '../../helpers';
 export const fetchTable = createAsyncThunk(
   'table/fetchTable',
   async () => {
-    await delay();
     const table = await getTable();
+    await delay();
 
     return table;
   }

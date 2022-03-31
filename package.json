@@ -42,7 +42,7 @@
     ],
     "rules": {
       "curly": "error",
-      "no-magic-numbers": ["error", {
+      "no-magic-numbers": ["warn", {
         "ignoreDefaultValues": true
       }],
       "camelcase": "error",
