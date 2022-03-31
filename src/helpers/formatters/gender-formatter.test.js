@@ -1,4 +1,5 @@
 import { setGenderFormat } from './gender-formatter';
+import { render, screen } from '@testing-library/react';
 
 describe('gender formatter testing', () => {
   it('should return a div', () => {
@@ -23,5 +24,18 @@ describe('gender formatter testing', () => {
     const result = setGenderFormat();
 
     expect(result).toStrictEqual(<div className="family-app__gender-highlight">{""}</div>);
+  });
+});
+
+describe('testing formatter returning as a react component', () => {
+  it('should have an element class', () => {
+    const utils = render(setGenderFormat());
+
+    expect(utils.container.firstChild).toHaveClass("family-app__gender-highlight");
+  });
+
+  it('should have the same text as the first argument', () => {
+    render(setGenderFormat("Bigender"));
+    screen.getByText("Bigender");
   });
 });
