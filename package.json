@@ -54,6 +54,7 @@
       "newline-before-return": "error"
     }
   },
+  "eslintIgnore": ["*.test.js"],
   "browserslist": {
     "production": [
       ">0.2%",
