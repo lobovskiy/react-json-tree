@@ -34,8 +34,17 @@ describe('testing formatter returning as a react component', () => {
     expect(utils.container.firstChild).toHaveClass("family-app__gender-highlight");
   });
 
-  it('should have the same text as the first argument', () => {
+  it('should contain the same text as the first argument', () => {
     render(setGenderFormat("Bigender"));
-    screen.getByText("Bigender");
+    // screen.debug();
+
+    expect(screen.getByText("Bigender")).toBeInTheDocument();    // explicit assertion
+    screen.getByText("Bigender");   // implicit assertion with getBy
+  });
+
+  it('should have an element class', () => {
+    render(setGenderFormat("Female"));
+
+    expect(screen.getByText("Female")).toHaveClass("family-app__gender-highlight");
   });
 });

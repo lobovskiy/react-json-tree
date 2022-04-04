@@ -51,7 +51,7 @@
         "ignoreMemberSort": true
       }],
       "no-var": "error",
-      "newline-before-return": "error"
+      "newline-before-return": "warn"
     }
   },
   "eslintIgnore": ["*.test.js"],

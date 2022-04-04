@@ -11,13 +11,13 @@ function TableCells({ row, configColumns }) {
 
       if (formatter) {
         return formatter(row[dataField], key);
-      } else {
-        return (
-          <div key={ key }>
-            { row[dataField] }
-          </div>
-        );
       }
+
+      return (
+        <div key={ key }>
+          { row[dataField] }
+        </div>
+      )
     })
   )
 }
