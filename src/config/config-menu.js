@@ -1,23 +1,29 @@
 import { TablePage, TreePage, TreeAsyncPage } from '../pages';
 
+const iconCatalog = 'assets/img/icons/';
+
+function getMenuIcon(fileName) {
+  return require(`../${iconCatalog}${fileName}`);
+}
+
 const configMenu = {
   items: [
     {
       url: 'table',
       page: <TablePage />,
-      icon: 'icon-table.svg',
+      icon: getMenuIcon('icon-table.svg'),
       text: 'navigation.table'
     },
     {
       url: 'tree',
       page: <TreePage />,
-      icon: 'icon-tree.svg',
+      icon: getMenuIcon('icon-tree.svg'),
       text: 'navigation.tree'
     },
     {
       url: 'async-tree',
       page: <TreeAsyncPage />,
-      icon: 'icon-tree.svg',
+      icon: getMenuIcon('icon-tree.svg'),
       text: 'navigation.async-tree'
     }
   ]

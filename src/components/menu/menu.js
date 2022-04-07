@@ -10,7 +10,6 @@ function Menu() {
   const { t } = useTranslation();
 
   const menuItems = configMenu.items.map((item, i) => {
-    const icon = require(`../../assets/img/icons/${ item.icon }`);
 
     return (
       <Link
@@ -22,7 +21,7 @@ function Menu() {
           ) }
       >
         <div className="nav__item-bg"></div>
-        <div className="nav__item-img nav__item-img_violet"><img src={ icon } alt='img' /></div>
+        <div className="nav__item-img nav__item-img_violet"><img src={ item.icon } alt='img' /></div>
         <div className="nav__item-text">{ t(item.text) }</div>
       </Link>
     )
