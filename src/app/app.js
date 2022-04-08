@@ -13,13 +13,13 @@ function App() {
 
   return (
     <div className="family-app">
-      <div className="family-app__language-switcher">
-        <LanguageSwitcher />
-      </div>
       <div className="family-app__container">
         <div className="family-app__menu">
           <Logo />
           <Menu />
+          <div className="family-app__language-switcher">
+            <LanguageSwitcher />
+          </div>
         </div>
         <div className="family-app__content">
           <Routes>
