@@ -6,7 +6,7 @@ function getMenuIcon(fileName) {
   return require(`../${iconCatalog}${fileName}`);
 }
 
-const configMenu = {
+export const configMenu = {
   items: [
     {
       url: 'table',
@@ -28,5 +28,3 @@ const configMenu = {
     }
   ]
 }
-
-export default configMenu;

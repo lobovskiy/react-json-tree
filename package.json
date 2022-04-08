@@ -42,19 +42,27 @@
     ],
     "rules": {
       "curly": "error",
-      "no-magic-numbers": ["warn", {
-        "ignoreDefaultValues": true
-      }],
+      "no-magic-numbers": [
+        "warn",
+        {
+          "ignoreDefaultValues": true
+        }
+      ],
       "camelcase": "error",
-      "sort-imports": ["error", {
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": true
-      }],
+      "sort-imports": [
+        "warn",
+        {
+          "ignoreDeclarationSort": true,
+          "ignoreMemberSort": true
+        }
+      ],
       "no-var": "error",
       "newline-before-return": "warn"
     }
   },
-  "eslintIgnore": ["*.test.js"],
+  "eslintIgnore": [
+    "*.test.js"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
