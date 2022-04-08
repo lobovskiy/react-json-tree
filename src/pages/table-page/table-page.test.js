@@ -1,15 +1,21 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from '../../store-family';
 import TablePage from './table-page';
-import { configTable } from '../../config';
 
 describe('TablePage', () => {
 
-  test('renders TablePage component', () => {
-    render(<TablePage />);
+  test('renders TablePage component', async () => {
+    render(
+      <Provider store={store}>
+        <TablePage />
+      </Provider>
+    );
 
-    // expect(screen.getByText('Kosya')).toBeInTheDocument();    // explicit assertion
-    // screen.getByText('Kosya');                                // implicit assertion
-    // expect(screen.queryByText('1')).toBeNull();               // asserting that an element isn't there using queryBy
-    // expect(screen.getByText('Genderfluid')).toHaveClass('family-app__gender-highlight', 'family-app__gender-highlight_genderfluid');
+    screen.debug();
+
+    expect(await screen.findByText('Gabbie', undefined, { timeout: 1500 })).toBeInTheDocument();
+
+    screen.debug();
   });
 });
