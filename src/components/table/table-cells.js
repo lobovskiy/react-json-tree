@@ -1,4 +1,4 @@
-function TableColumns({ row, configColumns }) {
+function TableCells({ row, configColumns }) {
 
   if (!configColumns?.length) {
     return null;
@@ -22,4 +22,4 @@ function TableColumns({ row, configColumns }) {
   )
 }
 
-export default TableColumns;
+export default TableCells;

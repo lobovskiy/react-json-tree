@@ -1,14 +1,16 @@
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
-import { fetchFamilyChildren, toggleExpand } from '../../store/reducer';
-import TreeNode from './tree-node';
+import { toggleExpandNode } from '../../store-family/slice-tree';
+import { toggleExpandNodeAsync } from '../../store-family/slice-tree-async';
+import { fetchChildren } from '../../store-family/action-creators';
+import TreeBranch from './tree-branch';
 import Spinner from '../spinner';
 import './tree.scss';
 
-function Tree({ data, async = false }) {
+function Tree({ nodes, async = false }) {
   const dispatch = useDispatch();
 
-  if (!data?.length) {
+  if (!nodes?.length) {
     return null;
   }
 
@@ -16,32 +18,32 @@ function Tree({ data, async = false }) {
     const { id, isLoaded } = node;
 
     if (async && !isLoaded) {
-      dispatch(fetchFamilyChildren(id));
+      dispatch(fetchChildren(id));
+    } else if (async) {
+      dispatch(toggleExpandNodeAsync(id));
     } else {
-      dispatch(toggleExpand(id, async));
+      dispatch(toggleExpandNode(id));
     }
   }
 
   return (
     <div className="tree">
       {
-        data.map((node, i) => {
+        nodes.map((node, i) => {
 
-          const branchLoader = node.isLoading
-            ? <Spinner size="small" />
-            : null;
+          const nodeLoader = <Spinner size="small" />;
 
           return (
             <div
-              className={ classNames('tree__node', { tree__node_expanded: node.isExpanded }) }
+              className={ classNames("tree__node", { "tree__node_expanded": node.isExpanded }) }
               key={ i }
             >
               <div className="tree__node-name" onClick={ () => handleExpand(node) } >
-                { node.firstName } { node.lastName } { branchLoader }
+                { node.firstName } { node.lastName } { node.isLoading && nodeLoader }
               </div>
-              <TreeNode data={ node.children } async={ async } onClick={ handleExpand } />
+              <TreeBranch nodes={ node.children } async={ async } level={ 1 } onClick={ handleExpand } />
             </div>
-          )
+          );
         })
       }
     </div>

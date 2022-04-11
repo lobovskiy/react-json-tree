@@ -4,6 +4,7 @@
   "homepage": "http://lobovskiy.github.io/react-json-tree/",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -38,7 +39,20 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "curly": "error",
+      "no-magic-numbers": ["error", {
+        "ignoreDefaultValues": true
+      }],
+      "camelcase": "error",
+      "sort-imports": ["error", {
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": true
+      }],
+      "no-var": "error",
+      "newline-before-return": "error"
+    }
   },
   "browserslist": {
     "production": [

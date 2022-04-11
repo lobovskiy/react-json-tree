@@ -11,11 +11,13 @@ async function serverRequest(filename, dataRepresent) {
         const treeData = await tree(filename);
         const rootParents = getRootParents(treeData);
         const structuredTreeData = createTreeArray(treeData, rootParents);
+
         return JSON.stringify(structuredTreeData);
       }
       case 'roots': {
         const treeData = await tree(filename);
         const rootParents = getRootParents(treeData);
+
         return JSON.stringify(rootParents);
       }
       default:
@@ -30,6 +32,7 @@ async function serverRequest(filename, dataRepresent) {
         const rootParents = getRootParents(treeData);
         const structuredTreeData = createTreeArray(treeData, rootParents);
         const children = getChildren(structuredTreeData, dataRepresent.payload.id);
+
         return JSON.stringify(children);
       }
       default:

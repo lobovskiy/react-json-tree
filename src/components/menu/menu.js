@@ -7,23 +7,19 @@ import './menu.scss';
 
 function Menu() {
   const { pathname } = useLocation();
-
   const { t } = useTranslation();
 
-  const menu = configMenu.items.map((item, i) => {
-
+  const menuItems = configMenu.items.map((item, i) => {
     const icon = require(`../../assets/img/icons/${ item.icon }`);
 
     return (
       <Link
         key={ i }
         to={ `/${ item.url }` }
-        className={
-          classNames(
-            'nav__item',
-            { nav__item_active: (pathname === `/${ item.url }`) }
-          )
-        }
+        className={ classNames(
+            "nav__item",
+            { "nav__item_active": (pathname === `/${ item.url }`) }
+          ) }
       >
         <div className="nav__item-bg"></div>
         <div className="nav__item-img nav__item-img_violet"><img src={ icon } alt='img' /></div>
@@ -34,7 +30,7 @@ function Menu() {
 
   return (
     <div className="nav">
-      { menu }
+      { menuItems }
     </div>
   );
 }
